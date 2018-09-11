@@ -1,0 +1,4 @@
+*.asta.lock
+*.exe
+debug
+.project
