@@ -21,19 +21,15 @@ type PaintingCanvas struct {
 
 	window *walk.MainWindow
 
-	// Painting history
-	history *HistoryCommand
-
 	// ˅
 
 	// ˄
 }
 
-func NewPaintingCanvas(window *walk.MainWindow, history *HistoryCommand) *PaintingCanvas {
+func NewPaintingCanvas(window *walk.MainWindow) *PaintingCanvas {
 	// ˅
 	paintingCanvas := &PaintingCanvas{}
 	paintingCanvas.window = window
-	paintingCanvas.history = history
 	paintingCanvas.pointRadius = 6.0
 	paintingCanvas.paintingColor = walk.RGB(0, 0, 255)
 

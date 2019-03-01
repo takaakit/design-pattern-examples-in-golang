@@ -38,7 +38,7 @@ func NewAppMain() *AppMain {
 
 	appMain := &AppMain{}
 	appMain.history = NewHistoryCommand()
-	appMain.canvas = NewPaintingCanvas(mw, appMain.history)
+	appMain.canvas = NewPaintingCanvas(mw)
 	appMain.buttonUndo = pb1
 	appMain.buttonCancel = pb2
 
