@@ -60,8 +60,7 @@ func (self *File) Print(upperPath string) {
 Installation
 ------------
 **Astah**
-* Download Astah Community or Professional from [Change Vision site](http://astah.net/download), and install.  
-  The Community Edition is free, and the Professional Edition is paid.
+* Download Astah UML or Professional from [Change Vision site](http://astah.net/download), and install.  
 
 **M PLUS plug-in**
 * Download the plug-in from [M PLUS plug-in site](https://sites.google.com/view/m-plus-plugin/download), and install.  
@@ -89,6 +88,8 @@ Other programming languages
 ---------------------------
 
 * [Design Pattern Examples in C++](https://github.com/takaakit/design-pattern-examples-in-cpp)
+* [Design Pattern Examples in C#](https://github.com/takaakit/design-pattern-examples-in-csharp)
+* [Design Pattern Examples in Java](https://github.com/takaakit/design-pattern-examples-in-java)
 * [Design Pattern Examples in Kotlin](https://github.com/takaakit/design-pattern-examples-in-kotlin)
 * [Design Pattern Examples in Python](https://github.com/takaakit/design-pattern-examples-in-python)
 * [Design Pattern Examples in Ruby](https://github.com/takaakit/design-pattern-examples-in-ruby)
