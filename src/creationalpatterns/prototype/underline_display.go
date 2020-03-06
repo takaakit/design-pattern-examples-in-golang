@@ -25,7 +25,7 @@ func NewUnderlineDisplay(underlineChar string) *UnderlineDisplay {
 
 func (self *UnderlineDisplay) CreateClone() Display {
 	// ˅
-	return &UnderlineDisplay{self.underlineChar}
+	return NewUnderlineDisplay(self.underlineChar)
 	// ˄
 }
 

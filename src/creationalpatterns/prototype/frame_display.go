@@ -25,7 +25,7 @@ func NewFrameDisplay(borderChar string) *FrameDisplay {
 
 func (self *FrameDisplay) CreateClone() Display {
 	// ˅
-	return &FrameDisplay{self.borderChar}
+	return NewFrameDisplay(self.borderChar)
 	// ˄
 }
 
