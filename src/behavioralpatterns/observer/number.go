@@ -40,6 +40,7 @@ func (self *Number) DeleteObserver(observer Observer) {
 			retObservers = append(retObservers, o)
 		}
 	}
+	self.observers = retObservers
 	// ˄
 }
 
