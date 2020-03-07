@@ -15,7 +15,6 @@ Dice game collecting fruits.
 */
 
 func main() {
-	fmt.Println("Hello World.")
 	gamer := NewGamer(100)
 	memento := gamer.CreateMemento()
 
