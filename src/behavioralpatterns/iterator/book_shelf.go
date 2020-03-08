@@ -34,7 +34,7 @@ func (self *BookShelf) Iterator() Iterator {
 
 func (self *BookShelf) GetAt(index int) *Book {
 	// ˅
-	return self.books[self.numberOfBooks]
+	return self.books[index]
 	// ˄
 }
 
