@@ -24,7 +24,7 @@ type RandomNumber struct {
 func NewRandomNumber() *RandomNumber {
 	// ˅
 	rand.Seed(time.Now().UnixNano())
-	return &RandomNumber{}
+	return &RandomNumber{Number{value: 0}}
 	// ˄
 }
 
