@@ -22,7 +22,7 @@ type Repeat struct {
 
 func NewRepeat() *Repeat {
 	// ˅
-	return &Repeat{}
+	return &Repeat{number: 0}
 	// ˄
 }
 
