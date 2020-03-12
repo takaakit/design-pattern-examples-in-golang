@@ -29,7 +29,7 @@ func NewCreditCard(owner string) *CreditCard {
 
 func (self *CreditCard) Use() {
 	// ˅
-	fmt.Println("User " + self.owner + "'s card.")
+	fmt.Println("Use " + self.owner + "'s card.")
 	// ˄
 }
 
