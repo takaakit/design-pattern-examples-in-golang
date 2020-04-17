@@ -38,7 +38,7 @@ func (self *TextDisplayImpl) ImplOpen() {
 
 func (self *TextDisplayImpl) ImplWrite() {
 	// ˅
-	fmt.Println(":" + self.text + ":") // Enclose a text with "|" and display it.
+	fmt.Println(":" + self.text + ":") // Enclose a text with ":" and display it.
 	// ˄
 }
 
@@ -50,11 +50,11 @@ func (self *TextDisplayImpl) ImplClose() {
 
 func (self *TextDisplayImpl) printLine() {
 	// ˅
-	fmt.Print("*")                    // Display "+" mark at the beginning of a frame.
-	for i := 0; i < self.width; i++ { // Display "-" for the number of "width".
+	fmt.Print("*")                    // Display "*" mark at the beginning of a frame.
+	for i := 0; i < self.width; i++ { // Display "." for the number of "width".
 		fmt.Print(".")
 	}
-	fmt.Println("*") // Display "+" mark at the end of a frame.
+	fmt.Println("*")                  // Display "*" mark at the end of a frame.
 	// ˄
 }
 
