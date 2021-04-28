@@ -127,14 +127,14 @@ func (self *AppSafe) ChangeState(state State) {
 // Call a security guard room
 func (self *AppSafe) CallSecurityGuardsRoom(msg string) {
 	// ˅
-	self.textMessage.AppendText("call! " + msg + "\n")
+	self.textMessage.AppendText("call! " + msg + "\r\n")
 	// ˄
 }
 
 // Record security log
 func (self *AppSafe) RecordSecurityLog(msg string) {
 	// ˅
-	self.textMessage.AppendText("record ... " + msg + "\n")
+	self.textMessage.AppendText("record ... " + msg + "\r\n")
 	// ˄
 }
 
