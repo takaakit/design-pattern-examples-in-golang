@@ -54,7 +54,7 @@ func (self *TextDisplayImpl) printLine() {
 	for i := 0; i < self.width; i++ { // Display "." for the number of "width".
 		fmt.Print(".")
 	}
-	fmt.Println("*")                  // Display "*" mark at the end of a frame.
+	fmt.Println("*") // Display "*" mark at the end of a frame.
 	// ˄
 }
 
