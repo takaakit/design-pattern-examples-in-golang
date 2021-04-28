@@ -67,7 +67,9 @@ Installation
   **Use ver.2.2 or higher.**
 
 **Development Environment for Golang**
-* Prepare a development environment for Golang (e.g. [Golang binary](https://golang.org/dl/), [Golang extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)).
+* Download and install [Golang](https://golang.org/dl/) ver.1.16 or higher.
+* Download and install [VS Code](https://code.visualstudio.com/download).  
+* Install [Golang extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go) for VS Code.
 * Install the [Walk library](https://github.com/lxn/walk).
 
 Usage
