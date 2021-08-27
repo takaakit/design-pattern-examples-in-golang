@@ -1,5 +1,5 @@
 // ˅
-package main
+package flyweight
 
 import (
 	"bufio"
@@ -26,8 +26,7 @@ type LargeSizeChar struct {
 
 func NewLargeSizeChar(charName string) *LargeSizeChar {
 	// ˅
-	largeSizeChar := &LargeSizeChar{}
-	largeSizeChar.charName = charName
+	largeSizeChar := &LargeSizeChar{charName: charName}
 
 	file, err := os.Open("big" + charName + ".txt")
 	if err != nil {
@@ -45,9 +44,9 @@ func NewLargeSizeChar(charName string) *LargeSizeChar {
 }
 
 // Display the large size character
-func (self *LargeSizeChar) Display() {
+func (l *LargeSizeChar) Display() {
 	// ˅
-	fmt.Println(self.displayData)
+	fmt.Println(l.displayData)
 	// ˄
 }
 

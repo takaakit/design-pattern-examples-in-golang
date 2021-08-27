@@ -1,5 +1,5 @@
 // ˅
-package main
+package interpreter
 
 // ˄
 
@@ -8,7 +8,7 @@ type Command struct {
 
 	// ˄
 
-	node INode
+	node Node
 
 	// ˅
 
@@ -21,20 +21,24 @@ func NewCommand() *Command {
 	// ˄
 }
 
-func (self *Command) Parse(context *Context) {
+func (c *Command) Parse(context *Context) {
 	// ˅
+	var aNode Node
 	if context.GetToken() == "repeat" {
-		self.node = NewRepeat()
+		aNode = NewRepeat()
+		aNode.Parse(context)
 	} else {
-		self.node = NewAction(context.GetToken())
+		aNode = NewAction()
+		aNode.Parse(context)
 	}
-	self.node.Parse(context)
+
+	c.node = aNode // Hold the parsed node
 	// ˄
 }
 
-func (self *Command) ToString() string {
+func (c *Command) String() string {
 	// ˅
-	return self.node.ToString()
+	return c.node.String()
 	// ˄
 }
 

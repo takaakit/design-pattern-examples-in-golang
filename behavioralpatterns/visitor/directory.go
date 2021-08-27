@@ -1,5 +1,7 @@
 // ˅
-package main
+package visitor
+
+import "strconv"
 
 // ˄
 
@@ -8,10 +10,10 @@ type Directory struct {
 
 	// ˄
 
-	FileSystemElement
+	name string
 
 	// Collection of elements
-	elements []Element
+	fileSystemElements []FileSystemElement
 
 	// ˅
 
@@ -20,24 +22,43 @@ type Directory struct {
 
 func NewDirectory(name string) *Directory {
 	// ˅
-	directory := &Directory{}
-	directory.FileSystemElement = *NewFileSystemElement(name, 0)
-	return directory
+	return &Directory{fileSystemElements: []FileSystemElement{}, name: name}
 	// ˄
 }
 
 // Accept a visitor
-func (self *Directory) Accept(visitor Visitor) {
+func (d *Directory) Accept(visitor Visitor) {
 	// ˅
-	visitor.VisitDirectory(self)
+	visitor.VisitDirectory(d)
+	// ˄
+}
+
+func (d *Directory) GetName() string {
+	// ˅
+	return d.name
+	// ˄
+}
+
+func (d *Directory) GetSize() int32 {
+	// ˅
+	var size int32 = 0
+	for _, iFileSystemElement := range d.fileSystemElements {
+		size += iFileSystemElement.GetSize()
+	}
+	return size
+	// ˄
+}
+
+func (d *Directory) String() string {
+	// ˅
+	return d.GetName() + " (" + strconv.Itoa(int(d.GetSize())) + ")"
 	// ˄
 }
 
 // Add an entry
-func (self *Directory) Add(element Element) *Directory {
+func (d *Directory) Add(fileSystemElement FileSystemElement) {
 	// ˅
-	self.elements = append(self.elements, element)
-	return self
+	d.fileSystemElements = append(d.fileSystemElements, fileSystemElement)
 	// ˄
 }
 

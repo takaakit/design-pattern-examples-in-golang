@@ -1,5 +1,5 @@
 // ˅
-package main
+package flyweight
 
 import "strings"
 
@@ -28,10 +28,10 @@ func NewLargeSizeString(displayData string) *LargeSizeString {
 	// ˄
 }
 
-func (self *LargeSizeString) Display() {
+func (l *LargeSizeString) Display() {
 	// ˅
-	for i := 0; i < len(self.largeSizeChars); i++ {
-		self.largeSizeChars[i].Display()
+	for i := 0; i < len(l.largeSizeChars); i++ {
+		l.largeSizeChars[i].Display()
 	}
 	// ˄
 }

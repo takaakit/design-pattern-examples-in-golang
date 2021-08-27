@@ -1,10 +1,10 @@
 // ˅
-package main
+package command
 
 // ˄
 
 type PaintingTarget interface {
-	Paint(paintingPosX int, paintingPosY int)
+	Paint(x int, y int)
 
 	Clear()
 

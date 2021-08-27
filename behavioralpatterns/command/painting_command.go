@@ -1,5 +1,5 @@
 // ˅
-package main
+package command
 
 // ˄
 
@@ -24,17 +24,17 @@ type PaintingCommand struct {
 
 func NewPaintingCommand(paintingTarget PaintingTarget, paintingPosX int, paintingPosY int) *PaintingCommand {
 	// ˅
-	paintingCommand := &PaintingCommand{}
-	paintingCommand.paintingTarget = paintingTarget
-	paintingCommand.paintingPosX = paintingPosX
-	paintingCommand.paintingPosY = paintingPosY
-	return paintingCommand
+	return &PaintingCommand{
+		paintingPosX:   paintingPosX,
+		paintingPosY:   paintingPosY,
+		paintingTarget: paintingTarget,
+	}
 	// ˄
 }
 
-func (self *PaintingCommand) Execute() {
+func (p *PaintingCommand) Execute() {
 	// ˅
-	self.paintingTarget.Paint(self.paintingPosX, self.paintingPosY)
+	p.paintingTarget.Paint(p.paintingPosX, p.paintingPosY)
 	// ˄
 }
 

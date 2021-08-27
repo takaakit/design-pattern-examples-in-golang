@@ -1,5 +1,5 @@
 // ˅
-package main
+package bridge
 
 // ˄
 
@@ -17,33 +17,33 @@ type Display struct {
 
 func NewDisplay(impl DisplayImpl) *Display {
 	// ˅
-	return &Display{impl}
+	return &Display{impl: impl}
 	// ˄
 }
 
-func (self *Display) Output() {
+func (d *Display) Output() {
 	// ˅
-	self.Open()
-	self.Write()
-	self.Close()
+	d.Open()
+	d.Write()
+	d.Close()
 	// ˄
 }
 
-func (self *Display) Open() {
+func (d *Display) Open() {
 	// ˅
-	self.impl.ImplOpen()
+	d.impl.ImplOpen()
 	// ˄
 }
 
-func (self *Display) Write() {
+func (d *Display) Write() {
 	// ˅
-	self.impl.ImplWrite()
+	d.impl.ImplWrite()
 	// ˄
 }
 
-func (self *Display) Close() {
+func (d *Display) Close() {
 	// ˅
-	self.impl.ImplClose()
+	d.impl.ImplClose()
 	// ˄
 }
 

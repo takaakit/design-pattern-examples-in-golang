@@ -1,5 +1,5 @@
 // ˅
-package main
+package chainofresponsibility
 
 // ˄
 
@@ -17,12 +17,12 @@ type MoodySupporter struct {
 
 func NewMoodySupporter(name string) *MoodySupporter {
 	// ˅
-	return &MoodySupporter{Supporter{name: name}}
+	return &MoodySupporter{Supporter: Supporter{name: name}}
 	// ˄
 }
 
 // Troubles with an odd ID are handled.
-func (self *MoodySupporter) Handle(trouble *Trouble) bool {
+func (m *MoodySupporter) CanHandle(trouble *Trouble) bool {
 	// ˅
 	return trouble.id%2 == 1
 	// ˄

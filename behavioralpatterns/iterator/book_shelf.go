@@ -1,5 +1,5 @@
 // ˅
-package main
+package iterator
 
 // ˄
 
@@ -19,29 +19,32 @@ type BookShelf struct {
 
 func NewBookShelf(maxsize int) *BookShelf {
 	// ˅
-	bookShelf := &BookShelf{}
-	bookShelf.numberOfBooks = 0
-	bookShelf.books = make([]*Book, maxsize)
-	return bookShelf
+	return &BookShelf{numberOfBooks: 0, books: make([]*Book, maxsize)}
 	// ˄
 }
 
-func (self *BookShelf) Iterator() Iterator {
+func (b *BookShelf) Iterator() Iterator {
 	// ˅
-	return NewBookShelfIterator(self)
+	return NewBookShelfIterator(b)
 	// ˄
 }
 
-func (self *BookShelf) GetAt(index int) *Book {
+func (b *BookShelf) GetAt(index int) *Book {
 	// ˅
-	return self.books[index]
+	return b.books[index]
 	// ˄
 }
 
-func (self *BookShelf) Add(book *Book) {
+func (b *BookShelf) Add(book *Book) {
 	// ˅
-	self.books[self.numberOfBooks] = book
-	self.numberOfBooks++
+	b.books[b.numberOfBooks] = book
+	b.numberOfBooks++
+	// ˄
+}
+
+func (b *BookShelf) NumberOfBooks() int {
+	// ˅
+	return b.numberOfBooks
 	// ˄
 }
 

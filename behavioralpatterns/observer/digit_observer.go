@@ -1,35 +1,37 @@
 // ˅
-package main
+package observer
 
 import (
 	"fmt"
 	"strconv"
-	"time"
 )
 
 // ˄
 
-// Display values with digits.
+// Display values as a number.
 type DigitObserver struct {
 	// ˅
 
 	// ˄
 
+	numberSubject *NumberSubject
+
 	// ˅
 
 	// ˄
 }
 
-func NewDigitObserver() *DigitObserver {
+func NewDigitObserver(numberSubject *NumberSubject) *DigitObserver {
 	// ˅
-	return &DigitObserver{}
+	return &DigitObserver{numberSubject: numberSubject}
 	// ˄
 }
 
-func (self *DigitObserver) Update(number *Number) {
+func (d *DigitObserver) Update(iSubject ISubject) {
 	// ˅
-	fmt.Println("Digit    : " + strconv.Itoa(number.value))
-	time.Sleep(100 * time.Millisecond)
+	if iSubject == &(d.numberSubject.Subject) {
+		fmt.Println("Digit    : " + strconv.Itoa(d.numberSubject.value))
+	}
 	// ˄
 }
 

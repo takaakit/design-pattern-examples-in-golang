@@ -1,12 +1,12 @@
 // ˅
-package main
+package strategy
 
 // ˄
 
 type Strategy interface {
-	NextHand() *Hand
+	ShowHandSignal() *HandSignal
 
-	Learn(win bool)
+	NotifyGameResult(result GameResultType, ownHand *HandSignal, opponentsHand *HandSignal)
 
 	// ˅
 

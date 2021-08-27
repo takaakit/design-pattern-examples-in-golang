@@ -1,33 +1,19 @@
 // ˅
-package main
-
-import "strconv"
+package visitor
 
 // ˄
 
-type FileSystemElement struct {
+type FileSystemElement interface {
+	Element
+
+	GetName() string
+
+	GetSize() int32
+
+	String() string
+
 	// ˅
 
-	// ˄
-
-	name string
-
-	size int
-
-	// ˅
-
-	// ˄
-}
-
-func NewFileSystemElement(name string, size int) *FileSystemElement {
-	// ˅
-	return &FileSystemElement{name, size}
-	// ˄
-}
-
-func (self *FileSystemElement) ToString() string {
-	// ˅
-	return self.name + " (" + strconv.Itoa(self.size) + ")"
 	// ˄
 }
 

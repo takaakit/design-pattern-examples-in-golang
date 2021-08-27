@@ -1,5 +1,7 @@
 // ˅
-package main
+package decorator
+
+import "fmt"
 
 // ˄
 
@@ -18,30 +20,36 @@ type SideFrame struct {
 	// ˄
 }
 
-func NewSideFrame(display IDisplay, frameChar string) *SideFrame {
+func NewSideFrame(display Display, frameChar string) *SideFrame {
 	// ˅
-	sideFrame := &SideFrame{}
-	sideFrame.frameChar = frameChar
-	sideFrame.Frame = *NewFrame(display)
-	return sideFrame
+	return &SideFrame{Frame: *NewFrame(display), frameChar: frameChar}
 	// ˄
 }
 
-func (self *SideFrame) GetLineText(row int) string {
+func (s *SideFrame) GetLineText(row int) string {
 	// ˅
-	return self.frameChar + self.display.GetLineText(row) + self.frameChar
+	return s.frameChar + s.display.GetLineText(row) + s.frameChar
 	// ˄
 }
 
-func (self *SideFrame) GetColumns() int {
+func (s *SideFrame) GetColumns() int {
 	// ˅
-	return 1 + self.display.GetColumns() + 1
+	return 1 + s.display.GetColumns() + 1
 	// ˄
 }
 
-func (self *SideFrame) GetRows() int {
+func (s *SideFrame) GetRows() int {
 	// ˅
-	return self.display.GetRows()
+	return s.display.GetRows()
+	// ˄
+}
+
+// Show all
+func (s *SideFrame) Show() {
+	// ˅
+	for i := 0; i < s.GetRows(); i++ {
+		fmt.Println(s.GetLineText(i))
+	}
 	// ˄
 }
 

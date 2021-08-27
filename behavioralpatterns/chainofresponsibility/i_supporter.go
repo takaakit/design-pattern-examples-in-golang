@@ -1,13 +1,15 @@
 // ˅
-package main
+package chainofresponsibility
 
 // ˄
 
 type ISupporter interface {
-	SetNext(next ISupporter) ISupporter
+	CanHandle(trouble *Trouble) bool
 
-	Handle(trouble *Trouble) bool
-
+	// Trouble support
+	// Troubles are sent around.
+	// 
+	// Client-Specified Self pattern.
 	Support(iSupporter ISupporter, trouble *Trouble)
 
 	// ˅

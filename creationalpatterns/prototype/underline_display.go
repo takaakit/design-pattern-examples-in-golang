@@ -1,7 +1,10 @@
 // ˅
-package main
+package prototype
 
-import "fmt"
+import (
+	"fmt"
+	. "github.com/takaakit/design-pattern-examples-in-golang/creationalpatterns/prototype/framework"
+)
 
 // ˄
 
@@ -19,23 +22,23 @@ type UnderlineDisplay struct {
 
 func NewUnderlineDisplay(underlineChar string) *UnderlineDisplay {
 	// ˅
-	return &UnderlineDisplay{underlineChar}
+	return &UnderlineDisplay{underlineChar: underlineChar}
 	// ˄
 }
 
-func (self *UnderlineDisplay) CreateClone() Display {
+func (u *UnderlineDisplay) Clone() Display {
 	// ˅
-	return NewUnderlineDisplay(self.underlineChar)
+	return NewUnderlineDisplay(u.underlineChar)
 	// ˄
 }
 
-func (self *UnderlineDisplay) Show(message string) {
+func (u *UnderlineDisplay) Show(message string) {
 	// ˅
 	var length = len(message)
 	fmt.Println("\"" + message + "\"")
 	fmt.Print(" ")
 	for i := 0; i < length; i++ {
-		fmt.Print(self.underlineChar)
+		fmt.Print(u.underlineChar)
 	}
 	fmt.Println("")
 	// ˄

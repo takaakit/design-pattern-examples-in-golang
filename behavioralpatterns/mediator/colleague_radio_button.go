@@ -1,5 +1,5 @@
 // ˅
-package main
+package mediator
 
 import (
 	"github.com/lxn/walk"
@@ -23,29 +23,26 @@ type ColleagueRadioButton struct {
 
 func NewColleagueRadioButton(radioButton *walk.RadioButton) *ColleagueRadioButton {
 	// ˅
-	colleagueRadioButton := &ColleagueRadioButton{}
-	colleagueRadioButton.Colleague = *NewColleague()
-	colleagueRadioButton.radioButton = radioButton
-	return colleagueRadioButton
+	return &ColleagueRadioButton{Colleague: *NewColleague(), radioButton: radioButton}
 	// ˄
 }
 
 // Set enable/disable from the Mediator
-func (self *ColleagueRadioButton) SetActivation(isEnable bool) {
+func (c *ColleagueRadioButton) SetActivation(isEnable bool) {
 	// ˅
-	self.radioButton.SetEnabled(isEnable)
+	c.radioButton.SetEnabled(isEnable)
 	// ˄
 }
 
-func (self *ColleagueRadioButton) OnClicked() {
+func (c *ColleagueRadioButton) OnClicked() {
 	// ˅
-	self.mediator.ColleagueChanged()
+	c.mediator.ColleagueChanged()
 	// ˄
 }
 
-func (self *ColleagueRadioButton) IsSelected() bool {
+func (c *ColleagueRadioButton) IsSelected() bool {
 	// ˅
-	return self.radioButton.Checked()
+	return c.radioButton.Checked()
 	// ˄
 }
 

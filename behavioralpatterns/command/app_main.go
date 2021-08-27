@@ -1,12 +1,12 @@
 // ˅
-package main
+package command
 
 import (
 	"fmt"
 	"os"
 
 	"github.com/lxn/walk"
-	. "github.com/lxn/walk/declarative"
+	"github.com/lxn/walk/declarative"
 )
 
 // ˄
@@ -16,14 +16,14 @@ type AppMain struct {
 
 	// ˄
 
-	buttonUndo *walk.PushButton
-
-	buttonCancel *walk.PushButton
-
 	// Painting history
 	history *HistoryCommand
 
 	canvas *PaintingCanvas
+
+	buttonUndo *walk.PushButton
+
+	buttonClear *walk.PushButton
 
 	// ˅
 
@@ -36,37 +36,37 @@ func NewAppMain() *AppMain {
 	var pb1 *walk.PushButton
 	var pb2 *walk.PushButton
 
-	appMain := &AppMain{}
-	appMain.history = NewHistoryCommand()
-	appMain.canvas = NewPaintingCanvas(mw)
-	appMain.buttonUndo = pb1
-	appMain.buttonCancel = pb2
+	appMain := &AppMain{
+		buttonUndo:  pb1,
+		buttonClear: pb2,
+		history:     NewHistoryCommand(),
+		canvas:      NewPaintingCanvas(mw),
+	}
 
-	mainWindow := MainWindow{
+	if _, err := (declarative.MainWindow{
 		AssignTo: &appMain.canvas.window,
 		Title:    "Command Example",
-		Size:     Size{480, 360},
+		MinSize:  declarative.Size{Width: 400, Height: 300},
+		Size:     declarative.Size{Width: 400, Height: 300},
 		OnMouseMove: func(x int, y int, btn walk.MouseButton) {
 			if btn == walk.LeftButton {
 				appMain.onDragged(x, y)
 			}
 		},
-		Layout: HBox{Margins: Margins{0, 310, 0, 0}},
-		Children: []Widget{
-			PushButton{
+		Layout: declarative.HBox{Margins: declarative.Margins{Left: 0, Top: 300, Right: 0, Bottom: 0}},
+		Children: []declarative.Widget{
+			declarative.PushButton{
 				AssignTo:  &appMain.buttonUndo,
 				Text:      "Undo",
 				OnClicked: appMain.undo,
 			},
-			PushButton{
-				AssignTo:  &appMain.buttonCancel,
-				Text:      "Cancel",
-				OnClicked: appMain.cancel,
+			declarative.PushButton{
+				AssignTo:  &appMain.buttonClear,
+				Text:      "Clear",
+				OnClicked: appMain.clear,
 			},
 		},
-	}
-
-	if _, err := mainWindow.Run(); err != nil {
+	}.Run()); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
@@ -75,26 +75,26 @@ func NewAppMain() *AppMain {
 	// ˄
 }
 
-func (self *AppMain) onDragged(paintingPosX int, paintingPosY int) {
+func (a *AppMain) onDragged(x int, y int) {
 	// ˅
-	paintingCommand := NewPaintingCommand(self.canvas, paintingPosX, paintingPosY)
-	self.history.Add(paintingCommand)
+	paintingCommand := NewPaintingCommand(a.canvas, x, y)
+	a.history.Add(paintingCommand)
 	paintingCommand.Execute()
 	// ˄
 }
 
-func (self *AppMain) cancel() {
+func (a *AppMain) undo() {
 	// ˅
-	self.canvas.Clear()
-	self.history.Clear()
+	a.canvas.Clear()
+	a.history.Undo()
+	a.history.Execute()
 	// ˄
 }
 
-func (self *AppMain) undo() {
+func (a *AppMain) clear() {
 	// ˅
-	self.canvas.Clear()
-	self.history.Undo()
-	self.history.Execute()
+	a.canvas.Clear()
+	a.history.Clear()
 	// ˄
 }
 

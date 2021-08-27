@@ -1,5 +1,5 @@
 // ˅
-package main
+package interpreter
 
 import (
 	"fmt"
@@ -21,26 +21,29 @@ type Action struct {
 	// ˄
 }
 
-func NewAction(name string) *Action {
+func NewAction() *Action {
 	// ˅
-	return &Action{name: name}
+	return &Action{name: ""}
 	// ˄
 }
 
-func (self *Action) Parse(context *Context) {
+func (a *Action) Parse(context *Context) {
 	// ˅
-	self.name = context.GetToken()
-	context.SlideToken(self.name)
-	if self.name != "forward" && self.name != "right" && self.name != "left" {
-		fmt.Println(self.name + " is unknown")
+	currentToken := context.GetToken()
+	if currentToken != "forward" && currentToken != "right" && currentToken != "left" {
+		fmt.Println(currentToken + " is unknown")
 		os.Exit(1)
 	}
+
+	a.name = currentToken // Hold the current token as this action name
+
+	context.SlideToken(currentToken)
 	// ˄
 }
 
-func (self *Action) ToString() string {
+func (a *Action) String() string {
 	// ˅
-	return self.name
+	return a.name
 	// ˄
 }
 

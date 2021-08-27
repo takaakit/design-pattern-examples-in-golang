@@ -17,21 +17,19 @@ type PrintMessageDisplay struct {
 
 func NewPrintMessageDisplay(message string) *PrintMessageDisplay {
 	// ˅
-	printMessageDisplay := &PrintMessageDisplay{}
-	printMessageDisplay.MessageDisplay = *NewMessageDisplay(message)
-	return printMessageDisplay
+	return &PrintMessageDisplay{MessageDisplay: *NewMessageDisplay(message)}
 	// ˄
 }
 
-func (self *PrintMessageDisplay) PrintWeak() {
+func (p *PrintMessageDisplay) PrintWeak() {
 	// ˅
-	self.DisplayWithHyphens()
+	p.DisplayWithHyphens()
 	// ˄
 }
 
-func (self *PrintMessageDisplay) PrintStrong() {
+func (p *PrintMessageDisplay) PrintStrong() {
 	// ˅
-	self.DisplayWithBrackets()
+	p.DisplayWithBrackets()
 	// ˄
 }
 

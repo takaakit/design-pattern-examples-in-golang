@@ -1,38 +1,40 @@
 // ˅
-package main
+package observer
 
 import (
 	"fmt"
-	"time"
 )
 
 // ˄
 
-// Display values with a bar chart.
+// Display values as a bar chart.
 type BarChartObserver struct {
 	// ˅
 
 	// ˄
 
+	numberSubject *NumberSubject
+
 	// ˅
 
 	// ˄
 }
 
-func NewBarChartObserver() *BarChartObserver {
+func NewBarChartObserver(numberSubject *NumberSubject) *BarChartObserver {
 	// ˅
-	return &BarChartObserver{}
+	return &BarChartObserver{numberSubject: numberSubject}
 	// ˄
 }
 
-func (self *BarChartObserver) Update(number *Number) {
+func (b *BarChartObserver) Update(iSubject ISubject) {
 	// ˅
-	fmt.Print("Bar chart: ")
-	for i := 0; i < number.value; i++ {
-		fmt.Print("*")
+	if iSubject == &(b.numberSubject.Subject) {
+		fmt.Print("Bar chart: ")
+		for i := 0; i < b.numberSubject.value; i++ {
+			fmt.Print("*")
+		}
+		fmt.Println()
 	}
-	fmt.Println("")
-	time.Sleep(100 * time.Millisecond)
 	// ˄
 }
 

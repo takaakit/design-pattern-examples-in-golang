@@ -1,5 +1,5 @@
 // ˅
-package main
+package templatemethod
 
 // ˄
 
@@ -9,6 +9,8 @@ type IAbstractDisplay interface {
 	Write()
 
 	Close()
+
+	Output(iAbstractDisplay IAbstractDisplay)
 
 	// ˅
 

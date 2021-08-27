@@ -1,35 +1,20 @@
 // ˅
-package main
-
-import (
-	"strconv"
-)
+package bridge
 
 // ˄
 
-type FileSystemElement struct {
+type FileSystemElement interface {
+	GetName() string
+
+	GetSize() int
+
+	// Print this element with the "upperPath".
+	Print(upperPath string)
+
+	String() string
+
 	// ˅
 
-	// ˄
-
-	name string
-
-	size int
-
-	// ˅
-
-	// ˄
-}
-
-func NewFileSystemElement(name string, size int) *FileSystemElement {
-	// ˅
-	return &FileSystemElement{name, size}
-	// ˄
-}
-
-func (self *FileSystemElement) ToString() string {
-	// ˅
-	return self.name + " (" + strconv.Itoa(self.size) + ")"
 	// ˄
 }
 

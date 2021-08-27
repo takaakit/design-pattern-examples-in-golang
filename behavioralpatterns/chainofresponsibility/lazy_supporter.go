@@ -1,5 +1,5 @@
 // ˅
-package main
+package chainofresponsibility
 
 // ˄
 
@@ -17,12 +17,12 @@ type LazySupporter struct {
 
 func NewLazySupporter(name string) *LazySupporter {
 	// ˅
-	return &LazySupporter{Supporter{name: name}}
+	return &LazySupporter{Supporter: Supporter{name: name}}
 	// ˄
 }
 
 // No troubles are handled.
-func (self *LazySupporter) Handle(trouble *Trouble) bool {
+func (l *LazySupporter) CanHandle(trouble *Trouble) bool {
 	// ˅
 	return false
 	// ˄

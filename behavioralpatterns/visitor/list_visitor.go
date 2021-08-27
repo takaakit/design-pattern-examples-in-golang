@@ -1,5 +1,5 @@
 // ˅
-package main
+package visitor
 
 import (
 	"fmt"
@@ -27,23 +27,23 @@ func NewListVisitor() *ListVisitor {
 }
 
 // Visit a file
-func (self *ListVisitor) VisitFile(file *File) {
+func (l *ListVisitor) VisitFile(file *File) {
 	// ˅
-	fmt.Println(self.currentDirectory + "/" + file.ToString())
+	fmt.Println(l.currentDirectory + "/" + file.String())
 	// ˄
 }
 
 // Visit a directory
-func (self *ListVisitor) VisitDirectory(directory *Directory) {
+func (l *ListVisitor) VisitDirectory(directory *Directory) {
 	// ˅
-	fmt.Println(self.currentDirectory + "/" + directory.ToString())
-	var visitedDirectory = self.currentDirectory
-	self.currentDirectory = self.currentDirectory + "/" + directory.name
-	for _, fileSystemElement := range directory.elements {
-		var element Element = fileSystemElement
-		element.Accept(self)
+	fmt.Println(l.currentDirectory + "/" + directory.String())
+	var visitedDirectory = l.currentDirectory
+	l.currentDirectory = l.currentDirectory + "/" + directory.name
+	for _, iFileSystemElement := range directory.fileSystemElements {
+		var element Element = iFileSystemElement
+		element.Accept(l)
 	}
-	self.currentDirectory = visitedDirectory
+	l.currentDirectory = visitedDirectory
 	// ˄
 }
 

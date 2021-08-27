@@ -1,5 +1,5 @@
 // ˅
-package main
+package builder
 
 // ˄
 
@@ -22,14 +22,14 @@ func NewDirector(builder Builder) *Director {
 }
 
 // Construct a document
-func (self *Director) Build() {
+func (d *Director) Build() {
 	// ˅
-	self.builder.CreateTitle("Greeting")                                           // Title
-	self.builder.CreateSection("Morning and Afternoon")                            // Section
-	self.builder.CreateItems([]string{"Good morning.", "Hello."})                  // Items
-	self.builder.CreateSection("Evening")                                          // Other section
-	self.builder.CreateItems([]string{"Good evening.", "Good night.", "Goodbye."}) // Other items
-	self.builder.Close()
+	d.builder.CreateTitle("Greeting")                                           // Title
+	d.builder.CreateSection("Morning and Afternoon")                            // Section
+	d.builder.CreateItems([]string{"Good morning.", "Hello."})                  // Items
+	d.builder.CreateSection("Evening")                                          // Other section
+	d.builder.CreateItems([]string{"Good evening.", "Good night.", "Goodbye."}) // Other items
+	d.builder.Close()
 	// ˄
 }
 

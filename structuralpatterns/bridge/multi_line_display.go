@@ -1,5 +1,5 @@
 // ˅
-package main
+package bridge
 
 // ˄
 
@@ -17,20 +17,18 @@ type MultiLineDisplay struct {
 
 func NewMultiLineDisplay(impl DisplayImpl) *MultiLineDisplay {
 	// ˅
-	multiLineDisplay := &MultiLineDisplay{}
-	multiLineDisplay.Display = *NewDisplay(impl)
-	return multiLineDisplay
+	return &MultiLineDisplay{Display: *NewDisplay(impl)}
 	// ˄
 }
 
 // Repeat display for the specified number of times
-func (self *MultiLineDisplay) OutputMultiple(times int) {
+func (m *MultiLineDisplay) OutputMultiple(times int) {
 	// ˅
-	self.Open()
+	m.Open()
 	for i := 0; i < times; i++ {
-		self.Write()
+		m.Write()
 	}
-	self.Close()
+	m.Close()
 	// ˄
 }
 

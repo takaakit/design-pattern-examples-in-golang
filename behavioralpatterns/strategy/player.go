@@ -1,5 +1,5 @@
 // ˅
-package main
+package strategy
 
 import "strconv"
 
@@ -27,45 +27,38 @@ type Player struct {
 
 func NewPlayer(name string, strategy Strategy) *Player {
 	// ˅
-	return &Player{name, 0, 0, 0, strategy}
+	return &Player{name: name, winCount: 0, lossCount: 0, gameCount: 0, strategy: strategy}
 	// ˄
 }
 
-// Calculate a hand from the strategy.
-func (self *Player) NextHand() *Hand {
+// Show a hand signal from the strategy.
+func (p *Player) ShowHandSignal() *HandSignal {
 	// ˅
-	return self.strategy.NextHand()
+	return p.strategy.ShowHandSignal()
 	// ˄
 }
 
-// Won a game.
-func (self *Player) Won() {
+// Notify a game result.
+func (p *Player) NotifyGameResult(result GameResultType, ownHand *HandSignal, opponentsHand *HandSignal) {
 	// ˅
-	self.strategy.Learn(true)
-	self.winCount++
-	self.gameCount++
+	switch result {
+	case Win:
+		p.winCount++
+		p.gameCount++
+	case Loss:
+		p.lossCount++
+		p.gameCount++
+	case Draw:
+		p.gameCount++
+	}
+
+	p.strategy.NotifyGameResult(result, ownHand, opponentsHand)
 	// ˄
 }
 
-// Lost a game.
-func (self *Player) Lost() {
+func (p *Player) ToString() string {
 	// ˅
-	self.strategy.Learn(false)
-	self.lossCount++
-	self.gameCount++
-	// ˄
-}
-
-// Drew a game.
-func (self *Player) Drew() {
-	// ˅
-	self.gameCount++
-	// ˄
-}
-
-func (self *Player) ToString() string {
-	// ˅
-	return self.name + " [" + strconv.Itoa(self.gameCount) + " games, " + strconv.Itoa(self.winCount) + " won, " + strconv.Itoa(self.lossCount) + " lost, " + strconv.Itoa(self.gameCount-self.winCount-self.lossCount) + " drew]"
+	return p.name + " [" + strconv.Itoa(p.gameCount) + " games, " + strconv.Itoa(p.winCount) + " won, " + strconv.Itoa(p.lossCount) + " lost, " + strconv.Itoa(p.gameCount-p.winCount-p.lossCount) + " drew]"
 	// ˄
 }
 

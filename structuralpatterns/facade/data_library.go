@@ -1,5 +1,5 @@
 // ˅
-package main
+package facade
 
 import (
 	"bufio"
@@ -30,7 +30,7 @@ func NewDataLibrary() *DataLibrary {
 }
 
 // Read a data library file.
-func (self *DataLibrary) GetProperties(dataLibraryName string) map[string]string {
+func (d *DataLibrary) GetProperties(dataLibraryName string) map[string]string {
 	// ˅
 	file, err := os.Open(dataLibraryName + ".txt")
 	if err != nil {

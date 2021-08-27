@@ -1,5 +1,5 @@
 // ˅
-package main
+package templatemethod
 
 import (
 	"fmt"
@@ -23,25 +23,23 @@ type CharDisplay struct {
 
 func NewCharDisplay(chText string) *CharDisplay {
 	// ˅
-	charDisplay := &CharDisplay{}
-	charDisplay.chText = chText
-	return charDisplay
+	return &CharDisplay{AbstractDisplay: AbstractDisplay{}, chText: chText}
 	// ˄
 }
 
-func (self *CharDisplay) Open() {
+func (c *CharDisplay) Open() {
 	// ˅
 	fmt.Print("<<") // Display "<<" in the start characters.
 	// ˄
 }
 
-func (self *CharDisplay) Write() {
+func (c *CharDisplay) Write() {
 	// ˅
-	fmt.Print(self.chText) // Display the character.
+	fmt.Print(c.chText) // Display the character.
 	// ˄
 }
 
-func (self *CharDisplay) Close() {
+func (c *CharDisplay) Close() {
 	// ˅
 	fmt.Println(">>") // Display ">>" in the end characters.
 	// ˄

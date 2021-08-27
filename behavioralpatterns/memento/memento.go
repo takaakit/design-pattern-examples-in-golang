@@ -1,5 +1,5 @@
 // ˅
-package main
+package memento
 
 // ˄
 
@@ -11,9 +11,6 @@ type Memento struct {
 	// Money
 	money int
 
-	// Desserts
-	desserts []string
-
 	// ˅
 
 	// ˄
@@ -21,16 +18,13 @@ type Memento struct {
 
 func NewMemento(money int) *Memento {
 	// ˅
-	memento := &Memento{}
-	memento.money = money
-	return memento
+	return &Memento{money: money}
 	// ˄
 }
 
-// Add a dessert
-func (self *Memento) addDessert(dessert string) {
+func (m *Memento) Money() int {
 	// ˅
-	self.desserts = append(self.desserts, dessert)
+	return m.money
 	// ˄
 }
 

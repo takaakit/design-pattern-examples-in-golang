@@ -1,5 +1,5 @@
 // ˅
-package main
+package mediator
 
 import (
 	"github.com/lxn/walk"
@@ -23,29 +23,26 @@ type ColleagueTextField struct {
 
 func NewColleagueTextField(lineEdit *walk.LineEdit) *ColleagueTextField {
 	// ˅
-	colleagueTextField := &ColleagueTextField{}
-	colleagueTextField.Colleague = *NewColleague()
-	colleagueTextField.lineEdit = lineEdit
-	return colleagueTextField
+	return &ColleagueTextField{Colleague: *NewColleague(), lineEdit: lineEdit}
 	// ˄
 }
 
 // Set enable/disable from the Mediator
-func (self *ColleagueTextField) SetActivation(isEnable bool) {
+func (c *ColleagueTextField) SetActivation(isEnable bool) {
 	// ˅
-	self.lineEdit.SetReadOnly(!isEnable)
+	c.lineEdit.SetReadOnly(!isEnable)
 	// ˄
 }
 
-func (self *ColleagueTextField) OnTextChanged() {
+func (c *ColleagueTextField) OnTextChanged() {
 	// ˅
-	self.mediator.ColleagueChanged()
+	c.mediator.ColleagueChanged()
 	// ˄
 }
 
-func (self *ColleagueTextField) IsEmpty() bool {
+func (c *ColleagueTextField) IsEmpty() bool {
 	// ˅
-	return self.lineEdit.Text() == ""
+	return c.lineEdit.Text() == ""
 	// ˄
 }
 

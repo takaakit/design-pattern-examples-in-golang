@@ -1,5 +1,5 @@
 // ˅
-package main
+package iterator
 
 // ˄
 
@@ -19,20 +19,20 @@ type BookShelfIterator struct {
 
 func NewBookShelfIterator(bookShelf *BookShelf) *BookShelfIterator {
 	// ˅
-	return &BookShelfIterator{0, bookShelf}
+	return &BookShelfIterator{index: 0, bookShelf: bookShelf}
 	// ˄
 }
 
-func (self *BookShelfIterator) HasNext() bool {
+func (b *BookShelfIterator) HasNext() bool {
 	// ˅
-	return self.index < self.bookShelf.numberOfBooks
+	return b.index < b.bookShelf.NumberOfBooks()
 	// ˄
 }
 
-func (self *BookShelfIterator) Next() interface{} {
+func (b *BookShelfIterator) Next() interface{} {
 	// ˅
-	book := self.bookShelf.books[self.index]
-	self.index++
+	book := b.bookShelf.books[b.index]
+	b.index++
 	return book
 	// ˄
 }

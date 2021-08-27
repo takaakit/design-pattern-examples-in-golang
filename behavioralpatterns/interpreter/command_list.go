@@ -1,5 +1,5 @@
 // ˅
-package main
+package interpreter
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ type CommandList struct {
 
 	// ˄
 
-	nodes []INode
+	nodes []Node
 
 	// ˅
 
@@ -26,7 +26,7 @@ func NewCommandList() *CommandList {
 	// ˄
 }
 
-func (self *CommandList) Parse(context *Context) {
+func (c *CommandList) Parse(context *Context) {
 	// ˅
 	for {
 		if context.GetToken() == "" {
@@ -36,23 +36,25 @@ func (self *CommandList) Parse(context *Context) {
 			context.SlideToken("end")
 			break
 		} else {
-			commandNode := NewCommand()
-			commandNode.Parse(context)
-			self.nodes = append(self.nodes, commandNode)
+			aNode := NewCommand()
+			aNode.Parse(context)
+
+			c.nodes = append(c.nodes, aNode) // Hold the parsed node
 		}
 	}
 	// ˄
 }
 
-func (self *CommandList) ToString() string {
+func (c *CommandList) String() string {
 	// ˅
-	var str string
-	for i := 0; i < len(self.nodes); i++ {
-		str += (self.nodes[i]).ToString()
-		if i < len(self.nodes)-1 {
-			str += " "
+	str := "["
+	for i, n := range c.nodes {
+		str += n.String()
+		if i < len(c.nodes)-1 {
+			str += ", "
 		}
 	}
+	str += "]"
 	return str
 	// ˄
 }

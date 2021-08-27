@@ -1,5 +1,5 @@
 // ˅
-package main
+package state
 
 // ˄
 
@@ -20,7 +20,7 @@ func NewDaytimeState() *DaytimeState {
 }
 
 // Set time
-func (self *DaytimeState) SetTime(context Context, hour int) {
+func (d *DaytimeState) SetTime(context Context, hour int) {
 	// ˅
 	if hour < 9 || 17 <= hour {
 		context.ChangeState(NewNightState())
@@ -29,27 +29,27 @@ func (self *DaytimeState) SetTime(context Context, hour int) {
 }
 
 // Use a safe
-func (self *DaytimeState) UseSafe(context Context) {
+func (d *DaytimeState) Use(context Context) {
 	// ˅
 	context.RecordSecurityLog("Use a safe in the daytime")
 	// ˄
 }
 
 // Sound a emergency bell
-func (self *DaytimeState) SoundBell(context Context) {
+func (d *DaytimeState) Alarm(context Context) {
 	// ˅
 	context.CallSecurityGuardsRoom("Sound a emergency bell in the daytime")
 	// ˄
 }
 
 // Make a normal call
-func (self *DaytimeState) Call(context Context) {
+func (d *DaytimeState) Phone(context Context) {
 	// ˅
 	context.CallSecurityGuardsRoom("Make a normal call in the daytime")
 	// ˄
 }
 
-func (self *DaytimeState) ToString() string {
+func (d *DaytimeState) String() string {
 	// ˅
 	return "[Daytime]"
 	// ˄

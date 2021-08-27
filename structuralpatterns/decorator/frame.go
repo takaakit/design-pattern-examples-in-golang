@@ -1,5 +1,5 @@
 // ˅
-package main
+package decorator
 
 // ˄
 
@@ -8,20 +8,16 @@ type Frame struct {
 
 	// ˄
 
-	Display
-
-	display IDisplay
+	display Display
 
 	// ˅
 
 	// ˄
 }
 
-func NewFrame(display IDisplay) *Frame {
+func NewFrame(display Display) *Frame {
 	// ˅
-	frame := &Frame{}
-	frame.display = display
-	return frame
+	return &Frame{display: display}
 	// ˄
 }
 

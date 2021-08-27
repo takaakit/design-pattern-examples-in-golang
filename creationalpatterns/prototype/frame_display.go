@@ -1,7 +1,10 @@
 // ˅
-package main
+package prototype
 
-import "fmt"
+import (
+	"fmt"
+	. "github.com/takaakit/design-pattern-examples-in-golang/creationalpatterns/prototype/framework"
+)
 
 // ˄
 
@@ -19,26 +22,26 @@ type FrameDisplay struct {
 
 func NewFrameDisplay(borderChar string) *FrameDisplay {
 	// ˅
-	return &FrameDisplay{borderChar}
+	return &FrameDisplay{borderChar: borderChar}
 	// ˄
 }
 
-func (self *FrameDisplay) CreateClone() Display {
+func (f *FrameDisplay) Clone() Display {
 	// ˅
-	return NewFrameDisplay(self.borderChar)
+	return NewFrameDisplay(f.borderChar)
 	// ˄
 }
 
-func (self *FrameDisplay) Show(message string) {
+func (f *FrameDisplay) Show(message string) {
 	// ˅
 	var length = len(message)
 	for i := 0; i < length+4; i++ {
-		fmt.Print(self.borderChar)
+		fmt.Print(f.borderChar)
 	}
 	fmt.Println("")
-	fmt.Println(self.borderChar + " " + message + " " + self.borderChar)
+	fmt.Println(f.borderChar + " " + message + " " + f.borderChar)
 	for i := 0; i < length+4; i++ {
-		fmt.Print(self.borderChar)
+		fmt.Print(f.borderChar)
 	}
 	fmt.Println("")
 	// ˄

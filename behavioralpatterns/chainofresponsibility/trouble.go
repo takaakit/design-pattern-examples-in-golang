@@ -1,5 +1,5 @@
 // ˅
-package main
+package chainofresponsibility
 
 import "strconv"
 
@@ -20,14 +20,13 @@ type Trouble struct {
 
 func NewTrouble(id int) *Trouble {
 	// ˅
-	trouble := &Trouble{id: id}
-	return trouble
+	return &Trouble{id: id}
 	// ˄
 }
 
-func (self *Trouble) ToString() string {
+func (t *Trouble) String() string {
 	// ˅
-	return "[Trouble " + strconv.Itoa(self.id) + "]"
+	return "[Trouble " + strconv.Itoa(t.id) + "]"
 	// ˄
 }
 

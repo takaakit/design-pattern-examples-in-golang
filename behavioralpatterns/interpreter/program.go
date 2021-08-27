@@ -1,5 +1,5 @@
 // ˅
-package main
+package interpreter
 
 // ˄
 
@@ -9,7 +9,7 @@ type Program struct {
 
 	// ˄
 
-	commandList INode
+	commandList Node
 
 	// ˅
 
@@ -22,21 +22,20 @@ func NewProgram() *Program {
 	// ˄
 }
 
-func (self *Program) Parse(context *Context) {
+func (p *Program) Parse(context *Context) {
 	// ˅
 	context.SlideToken("program")
-	self.commandList = NewCommandList()
-	self.commandList.Parse(context)
+
+	aCommandList := NewCommandList()
+	aCommandList.Parse(context)
+
+	p.commandList = aCommandList // Hold the parsed command list
 	// ˄
 }
 
-func (self *Program) ToString() string {
+func (p *Program) String() string {
 	// ˅
-	if self.commandList != nil {
-		return "[program " + self.commandList.ToString() + "]"
-	} else {
-		return ""
-	}
+	return "[program " + p.commandList.String() + "]"
 	// ˄
 }
 

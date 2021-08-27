@@ -1,0 +1,327 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug BehavioralPatterns/ChainOfResponsibility",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/chainofresponsibility",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/Command",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/command",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/Interpreter",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/interpreter",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/Iterator",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/iterator",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/Mediator",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/mediator",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/Memento",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/memento",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/Observer",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/observer",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/State",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/state",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/Strategy",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/strategy",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/TemplateMethod",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/templatemethod",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug BehavioralPatterns/Visitor",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/behavioralpatterns/visitor",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug CreationalPatterns/AbstractFactory",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/creationalpatterns/abstractfactory",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug CreationalPatterns/Builder",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/creationalpatterns/builder",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug CreationalPatterns/FactoryMethod",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/creationalpatterns/factorymethod",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug CreationalPatterns/Prototype",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/creationalpatterns/prototype",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug CreationalPatterns/Singleton",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/creationalpatterns/singleton",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug StructuralPatterns/Adapter",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/structuralpatterns/adapter",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug StructuralPatterns/Bridge",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/structuralpatterns/bridge",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug StructuralPatterns/Composite",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/structuralpatterns/composite",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug StructuralPatterns/Decorator",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/structuralpatterns/decorator",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug StructuralPatterns/Facade",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/structuralpatterns/facade",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug StructuralPatterns/Flyweight",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/structuralpatterns/flyweight",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      },
+      {
+        "name": "Debug StructuralPatterns/Proxy",
+        "type": "go",
+        "request": "launch",
+        "mode": "test",
+        "program": "${workspaceRoot}/structuralpatterns/proxy",
+        "env": {},
+        "args": [
+            "-test.v",
+            "-test.run",
+            "TestMain"
+        ],
+        "showLog": false
+      }
+    ]
+  }

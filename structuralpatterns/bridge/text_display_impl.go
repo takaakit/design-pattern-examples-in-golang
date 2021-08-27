@@ -1,5 +1,5 @@
 // ˅
-package main
+package bridge
 
 import "fmt"
 
@@ -23,35 +23,35 @@ type TextDisplayImpl struct {
 
 func NewTextDisplayImpl(text string) *TextDisplayImpl {
 	// ˅
-	textDisplayImpl := &TextDisplayImpl{}
-	textDisplayImpl.text = text
-	textDisplayImpl.width = len(text)
-	return textDisplayImpl
+	return &TextDisplayImpl{
+		text:  text,
+		width: len(text), // Set the number of characters in bytes.
+	}
 	// ˄
 }
 
-func (self *TextDisplayImpl) ImplOpen() {
+func (t *TextDisplayImpl) ImplOpen() {
 	// ˅
-	self.printLine()
+	t.printLine()
 	// ˄
 }
 
-func (self *TextDisplayImpl) ImplWrite() {
+func (t *TextDisplayImpl) ImplWrite() {
 	// ˅
-	fmt.Println(":" + self.text + ":") // Enclose a text with ":" and display it.
+	fmt.Println(":" + t.text + ":") // Enclose a text with ":" and display it.
 	// ˄
 }
 
-func (self *TextDisplayImpl) ImplClose() {
+func (t *TextDisplayImpl) ImplClose() {
 	// ˅
-	self.printLine()
+	t.printLine()
 	// ˄
 }
 
-func (self *TextDisplayImpl) printLine() {
+func (t *TextDisplayImpl) printLine() {
 	// ˅
-	fmt.Print("*")                    // Display "*" mark at the beginning of a frame.
-	for i := 0; i < self.width; i++ { // Display "." for the number of "width".
+	fmt.Print("*")                 // Display "*" mark at the beginning of a frame.
+	for i := 0; i < t.width; i++ { // Display "." for the number of "width".
 		fmt.Print(".")
 	}
 	fmt.Println("*") // Display "*" mark at the end of a frame.

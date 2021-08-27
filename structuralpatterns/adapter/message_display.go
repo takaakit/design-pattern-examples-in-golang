@@ -19,19 +19,19 @@ type MessageDisplay struct {
 
 func NewMessageDisplay(message string) *MessageDisplay {
 	// ˅
-	return &MessageDisplay{message}
+	return &MessageDisplay{message: message}
 	// ˄
 }
 
-func (self *MessageDisplay) DisplayWithHyphens() {
+func (m *MessageDisplay) DisplayWithHyphens() {
 	// ˅
-	fmt.Println("-- " + self.message + " --")
+	fmt.Println("-- " + m.message + " --")
 	// ˄
 }
 
-func (self *MessageDisplay) DisplayWithBrackets() {
+func (m *MessageDisplay) DisplayWithBrackets() {
 	// ˅
-	fmt.Println("[[ " + self.message + " ]]")
+	fmt.Println("[[ " + m.message + " ]]")
 	// ˄
 }
 

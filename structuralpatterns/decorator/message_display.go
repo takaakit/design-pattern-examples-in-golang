@@ -1,5 +1,7 @@
 // ˅
-package main
+package decorator
+
+import "fmt"
 
 // ˄
 
@@ -7,8 +9,6 @@ type MessageDisplay struct {
 	// ˅
 
 	// ˄
-
-	Display
 
 	// Message to be displayed
 	message string
@@ -20,31 +20,38 @@ type MessageDisplay struct {
 
 func NewMessageDisplay(message string) *MessageDisplay {
 	// ˅
-	messageDisplay := &MessageDisplay{}
-	messageDisplay.message = message
-	return messageDisplay
+	return &MessageDisplay{message: message}
 	// ˄
 }
 
-func (self *MessageDisplay) GetLineText(row int) string {
+func (m *MessageDisplay) GetLineText(row int) string {
 	// ˅
 	if row == 0 {
-		return self.message
+		return m.message
 	} else {
 		return ""
 	}
 	// ˄
 }
 
-func (self *MessageDisplay) GetColumns() int {
+func (m *MessageDisplay) GetColumns() int {
 	// ˅
-	return len(self.message)
+	return len(m.message)
 	// ˄
 }
 
-func (self *MessageDisplay) GetRows() int {
+func (m *MessageDisplay) GetRows() int {
 	// ˅
 	return 1
+	// ˄
+}
+
+// Show all
+func (m *MessageDisplay) Show() {
+	// ˅
+	for i := 0; i < m.GetRows(); i++ {
+		fmt.Println(m.GetLineText(i))
+	}
 	// ˄
 }
 

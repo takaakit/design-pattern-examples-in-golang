@@ -1,5 +1,5 @@
 // ˅
-package main
+package chainofresponsibility
 
 // ˄
 
@@ -19,14 +19,14 @@ type LimitedSupporter struct {
 
 func NewLimitedSupporter(name string, limitId int) *LimitedSupporter {
 	// ˅
-	return &LimitedSupporter{Supporter{name: name}, limitId}
+	return &LimitedSupporter{Supporter: Supporter{name: name}, limitId: limitId}
 	// ˄
 }
 
 // Troubles with an ID below the limit are handled.
-func (self *LimitedSupporter) Handle(trouble *Trouble) bool {
+func (l *LimitedSupporter) CanHandle(trouble *Trouble) bool {
 	// ˅
-	return trouble.id <= self.limitId
+	return trouble.id <= l.limitId
 	// ˄
 }
 

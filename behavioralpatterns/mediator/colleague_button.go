@@ -1,5 +1,5 @@
 // ˅
-package main
+package mediator
 
 import (
 	"github.com/lxn/walk"
@@ -23,29 +23,26 @@ type ColleagueButton struct {
 
 func NewColleagueButton(pushButton *walk.PushButton) *ColleagueButton {
 	// ˅
-	colleagueButton := &ColleagueButton{}
-	colleagueButton.Colleague = *NewColleague()
-	colleagueButton.pushButton = pushButton
-	return colleagueButton
+	return &ColleagueButton{Colleague: *NewColleague(), pushButton: pushButton}
 	// ˄
 }
 
 // Set enable/disable from the Mediator
-func (self *ColleagueButton) SetActivation(isEnable bool) {
+func (c *ColleagueButton) SetActivation(isEnable bool) {
 	// ˅
-	self.pushButton.SetEnabled(isEnable)
+	c.pushButton.SetEnabled(isEnable)
 	// ˄
 }
 
-func (self *ColleagueButton) OnClicked() {
+func (c *ColleagueButton) OnClicked() {
 	// ˅
-	self.mediator.ColleagueChanged()
+	c.mediator.ColleagueChanged()
 	// ˄
 }
 
-func (self *ColleagueButton) IsSelected() bool {
+func (c *ColleagueButton) IsPressed() bool {
 	// ˅
-	return self.pushButton.Focused()
+	return c.pushButton.Focused()
 	// ˄
 }
 

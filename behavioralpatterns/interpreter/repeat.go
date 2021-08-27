@@ -1,5 +1,5 @@
 // ˅
-package main
+package interpreter
 
 import "strconv"
 
@@ -13,7 +13,7 @@ type Repeat struct {
 
 	number int
 
-	commandList INode
+	commandList Node
 
 	// ˅
 
@@ -26,19 +26,23 @@ func NewRepeat() *Repeat {
 	// ˄
 }
 
-func (self *Repeat) Parse(context *Context) {
+func (r *Repeat) Parse(context *Context) {
 	// ˅
 	context.SlideToken("repeat")
-	self.number = context.GetNumber()
-	context.NextToken()
-	self.commandList = NewCommandList()
-	self.commandList.Parse(context)
+
+	r.number = context.GetNumber()
+	context.SlideToken(strconv.Itoa(r.number))
+
+	aCommandList := NewCommandList()
+	aCommandList.Parse(context)
+
+	r.commandList = aCommandList // Hold the parsed command list
 	// ˄
 }
 
-func (self *Repeat) ToString() string {
+func (r *Repeat) String() string {
 	// ˅
-	return "[repeat " + strconv.Itoa(self.number) + " " + self.commandList.ToString() + "]"
+	return "repeat " + strconv.Itoa(r.number) + " " + r.commandList.String()
 	// ˄
 }
 

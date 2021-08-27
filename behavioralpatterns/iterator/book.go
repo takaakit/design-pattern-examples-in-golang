@@ -1,5 +1,5 @@
 // ˅
-package main
+package iterator
 
 // ˄
 
@@ -8,7 +8,7 @@ type Book struct {
 
 	// ˄
 
-	title string
+	Title string
 
 	// ˅
 
@@ -17,7 +17,7 @@ type Book struct {
 
 func NewBook(title string) *Book {
 	// ˅
-	return &Book{title}
+	return &Book{Title: title}
 	// ˄
 }
 

@@ -1,5 +1,5 @@
 // ˅
-package main
+package templatemethod
 
 import "fmt"
 
@@ -24,35 +24,32 @@ type StringDisplay struct {
 
 func NewStringDisplay(strText string) *StringDisplay {
 	// ˅
-	stringDisplay := &StringDisplay{}
-	stringDisplay.strText = strText
-	stringDisplay.width = len(strText)
-	return stringDisplay
+	return &StringDisplay{AbstractDisplay: AbstractDisplay{}, strText: strText, width: len(strText)}
 	// ˄
 }
 
-func (self *StringDisplay) Open() {
+func (s *StringDisplay) Open() {
 	// ˅
-	self.writeLine() // Write a line
+	s.writeLine() // Write a line
 	// ˄
 }
 
-func (self *StringDisplay) Write() {
+func (s *StringDisplay) Write() {
 	// ˅
-	fmt.Println("|" + self.strText + "|") // Display the character with "|"
+	fmt.Println("|" + s.strText + "|") // Display the character with "|"
 	// ˄
 }
 
-func (self *StringDisplay) Close() {
+func (s *StringDisplay) Close() {
 	// ˅
-	self.writeLine() // Write a line
+	s.writeLine() // Write a line
 	// ˄
 }
 
-func (self *StringDisplay) writeLine() {
+func (s *StringDisplay) writeLine() {
 	// ˅
 	fmt.Print("+") // Display an end mark "+"
-	for i := 0; i < self.width; i++ {
+	for i := 0; i < s.width; i++ {
 		fmt.Print("-") // Display a line "-"
 	}
 	fmt.Println("+") //  Display an end mark "+"

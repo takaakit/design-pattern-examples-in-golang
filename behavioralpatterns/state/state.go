@@ -1,22 +1,18 @@
 // ˅
-package main
+package state
 
 // ˄
 
 type State interface {
-	// Set time
 	SetTime(context Context, hour int)
 
-	// Use a safe
-	UseSafe(context Context)
+	Use(context Context)
 
-	// Sound a emergency bell
-	SoundBell(context Context)
+	Alarm(context Context)
 
-	// Make a normal call
-	Call(context Context)
+	Phone(context Context)
 
-	ToString() string
+	String() string
 
 	// ˅
 

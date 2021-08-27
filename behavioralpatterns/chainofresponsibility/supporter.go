@@ -1,5 +1,5 @@
 // ˅
-package main
+package chainofresponsibility
 
 import (
 	"fmt"
@@ -12,11 +12,13 @@ type Supporter struct {
 
 	// ˄
 
+	ISupporter
+
 	// Supporter name
 	name string
 
 	// Next supporter
-	next ISupporter
+	Next ISupporter
 
 	// ˅
 
@@ -25,52 +27,43 @@ type Supporter struct {
 
 func NewSupporter(name string) *Supporter {
 	// ˅
-	supporter := new(Supporter)
-	supporter.name = name
-	supporter.next = nil
-	return supporter
+	return &Supporter{name: name, Next: nil}
 	// ˄
 }
 
 // Trouble support
 // Troubles are sent around.
-func (self *Supporter) Support(iSupporter ISupporter, trouble *Trouble) {
+// 
+// Client-Specified Self pattern.
+func (s *Supporter) Support(iSupporter ISupporter, trouble *Trouble) {
 	// ˅
-	if iSupporter.Handle(trouble) {
-		self.supported(trouble)
-	} else if self.next != nil {
-		self.next.Support(self.next, trouble)
+	if iSupporter.CanHandle(trouble) {
+		s.supported(trouble)
+	} else if s.Next != nil {
+		s.Next.Support(s.Next, trouble)
 	} else {
-		self.unsupported(trouble)
+		s.unsupported(trouble)
 	}
 	// ˄
 }
 
-// Set a next supporter.
-func (self *Supporter) SetNext(next ISupporter) ISupporter {
+func (s *Supporter) String() string {
 	// ˅
-	self.next = next
-	return next
-	// ˄
-}
-
-func (self *Supporter) ToString() string {
-	// ˅
-	return "[" + self.name + "]"
+	return "[" + s.name + "]"
 	// ˄
 }
 
 // Trouble was supported.
-func (self *Supporter) supported(trouble *Trouble) {
+func (s *Supporter) supported(trouble *Trouble) {
 	// ˅
-	fmt.Println(trouble.ToString() + " was handled by " + self.ToString() + ".")
+	fmt.Println(trouble.String() + " was handled by " + s.String() + ".")
 	// ˄
 }
 
 // Trouble was unsupported.
-func (self *Supporter) unsupported(trouble *Trouble) {
+func (s *Supporter) unsupported(trouble *Trouble) {
 	// ˅
-	fmt.Println(trouble.ToString() + " was not handled.")
+	fmt.Println(trouble.String() + " was not handled.")
 	// ˄
 }
 

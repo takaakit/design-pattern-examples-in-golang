@@ -1,5 +1,5 @@
 // ˅
-package main
+package chainofresponsibility
 
 // ˄
 
@@ -10,23 +10,23 @@ type SpecialSupporter struct {
 
 	Supporter
 
-	targetId int
+	targetID int
 
 	// ˅
 
 	// ˄
 }
 
-func NewSpecialSupporter(name string, targetId int) *SpecialSupporter {
+func NewSpecialSupporter(name string, targetID int) *SpecialSupporter {
 	// ˅
-	return &SpecialSupporter{Supporter{name: name}, targetId}
+	return &SpecialSupporter{Supporter: Supporter{name: name}, targetID: targetID}
 	// ˄
 }
 
 // Troubles with the specific ID are handled.
-func (self *SpecialSupporter) Handle(trouble *Trouble) bool {
+func (s *SpecialSupporter) CanHandle(trouble *Trouble) bool {
 	// ˅
-	return trouble.id == self.targetId
+	return trouble.id == s.targetID
 	// ˄
 }
 

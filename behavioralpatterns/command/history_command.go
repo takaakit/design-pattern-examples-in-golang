@@ -1,5 +1,5 @@
 // ˅
-package main
+package command
 
 // ˄
 
@@ -19,41 +19,39 @@ type HistoryCommand struct {
 
 func NewHistoryCommand() *HistoryCommand {
 	// ˅
-	historyCommand := &HistoryCommand{}
-	historyCommand.pastCommands = []Command{}
-	return historyCommand
+	return &HistoryCommand{pastCommands: []Command{}}
 	// ˄
 }
 
-func (self *HistoryCommand) Execute() {
+func (h *HistoryCommand) Execute() {
 	// ˅
-	for i := 0; i < len(self.pastCommands); i++ {
-		self.pastCommands[i].Execute()
+	for i := 0; i < len(h.pastCommands); i++ {
+		h.pastCommands[i].Execute()
 	}
 	// ˄
 }
 
-func (self *HistoryCommand) Add(cmd Command) {
+func (h *HistoryCommand) Add(cmd Command) {
 	// ˅
-	self.pastCommands = append(self.pastCommands, cmd)
+	h.pastCommands = append(h.pastCommands, cmd)
 	// ˄
 }
 
 // Delete the last command
-func (self *HistoryCommand) Undo() {
+func (h *HistoryCommand) Undo() {
 	// ˅
 	var tmpCommands []Command
-	for i := 0; i < len(self.pastCommands)-1; i++ {
-		tmpCommands = append(tmpCommands, self.pastCommands[i])
+	for i := 0; i < len(h.pastCommands)-1; i++ {
+		tmpCommands = append(tmpCommands, h.pastCommands[i])
 	}
-	self.pastCommands = tmpCommands
+	h.pastCommands = tmpCommands
 	// ˄
 }
 
 // Delete all past commands.
-func (self *HistoryCommand) Clear() {
+func (h *HistoryCommand) Clear() {
 	// ˅
-	self.pastCommands = []Command{}
+	h.pastCommands = []Command{}
 	// ˄
 }
 

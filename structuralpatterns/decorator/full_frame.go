@@ -1,5 +1,7 @@
 // ˅
-package main
+package decorator
+
+import "fmt"
 
 // ˄
 
@@ -15,42 +17,49 @@ type FullFrame struct {
 	// ˄
 }
 
-func NewFullFrame(display IDisplay) *FullFrame {
+func NewFullFrame(display Display) *FullFrame {
 	// ˅
-	fullFrame := &FullFrame{}
-	fullFrame.Frame = *NewFrame(display)
-	return fullFrame
+	return &FullFrame{Frame: *NewFrame(display)}
 	// ˄
 }
 
-func (self *FullFrame) GetLineText(row int) string {
+func (f *FullFrame) GetLineText(row int) string {
 	// ˅
 	if row == 0 {
 		// Upper frame
-		return "+" + self.createLine("-", self.display.GetColumns()) + "+"
-	} else if row == self.display.GetRows()+1 {
+		return "+" + f.createLine("-", f.display.GetColumns()) + "+"
+	} else if row == f.display.GetRows()+1 {
 		// Bottom frame
-		return "+" + self.createLine("-", self.display.GetColumns()) + "+"
+		return "+" + f.createLine("-", f.display.GetColumns()) + "+"
 	} else {
 		// Other
-		return "|" + self.display.GetLineText(row-1) + "|"
+		return "|" + f.display.GetLineText(row-1) + "|"
 	}
 	// ˄
 }
 
-func (self *FullFrame) GetColumns() int {
+func (f *FullFrame) GetColumns() int {
 	// ˅
-	return 1 + self.display.GetColumns() + 1
+	return 1 + f.display.GetColumns() + 1
 	// ˄
 }
 
-func (self *FullFrame) GetRows() int {
+func (f *FullFrame) GetRows() int {
 	// ˅
-	return 1 + self.display.GetRows() + 1
+	return 1 + f.display.GetRows() + 1
 	// ˄
 }
 
-func (self *FullFrame) createLine(ch string, size int) string {
+// Show all
+func (f *FullFrame) Show() {
+	// ˅
+	for i := 0; i < f.GetRows(); i++ {
+		fmt.Println(f.GetLineText(i))
+	}
+	// ˄
+}
+
+func (f *FullFrame) createLine(ch string, size int) string {
 	// ˅
 	var buf string = ""
 	for i := 0; i < size; i++ {

@@ -1,5 +1,5 @@
 // ˅
-package main
+package interpreter
 
 import (
 	"fmt"
@@ -16,9 +16,9 @@ type Context struct {
 
 	// ˄
 
-	nodes []string
+	tokens []string
 
-	currentIndex int
+	currentTokenIndex int
 
 	// ˅
 
@@ -31,38 +31,38 @@ func NewContext(text string) *Context {
 	// ˄
 }
 
-func (self *Context) NextToken() string {
+func (c *Context) NextToken() string {
 	// ˅
-	self.currentIndex++
-	if self.currentIndex < len(self.nodes) {
-		return self.nodes[self.currentIndex]
+	c.currentTokenIndex++
+	if c.currentTokenIndex < len(c.tokens) {
+		return c.tokens[c.currentTokenIndex]
 	} else {
 		return ""
 	}
 	// ˄
 }
 
-func (self *Context) GetToken() string {
+func (c *Context) GetToken() string {
 	// ˅
-	return self.nodes[self.currentIndex]
+	return c.tokens[c.currentTokenIndex]
 	// ˄
 }
 
-func (self *Context) SlideToken(token string) {
+func (c *Context) SlideToken(token string) {
 	// ˅
-	if token != self.GetToken() {
-		fmt.Println("WARNING: " + token + " is expected but " + self.GetToken() + " was found.")
+	if token != c.GetToken() {
+		fmt.Println("WARNING: " + token + " is expected but " + c.GetToken() + " was found.")
 		os.Exit(1)
 	}
-	self.NextToken()
+	c.NextToken()
 	// ˄
 }
 
-func (self *Context) GetNumber() int {
+func (c *Context) GetNumber() int {
 	// ˅
-	i, err := strconv.Atoi(self.GetToken())
+	i, err := strconv.Atoi(c.GetToken())
 	if err != nil {
-		fmt.Println("WARNING: " + self.GetToken())
+		fmt.Println("WARNING: " + c.GetToken())
 		os.Exit(1)
 	}
 	return i

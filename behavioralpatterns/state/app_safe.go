@@ -1,5 +1,5 @@
 // ˅
-package main
+package state
 
 import (
 	"fmt"
@@ -8,24 +8,25 @@ import (
 	"time"
 
 	"github.com/lxn/walk"
-	. "github.com/lxn/walk/declarative"
+	"github.com/lxn/walk/declarative"
 )
 
 // ˄
 
+// Safe security system that the security status changes with time.
 type AppSafe struct {
 	// ˅
 
 	// ˄
+
+	// Current state
+	state State
 
 	// Current time
 	textTime *walk.LineEdit
 
 	// Display of security center
 	textMessage *walk.TextEdit
-
-	// Current state
-	state State
 
 	// ˅
 
@@ -34,63 +35,57 @@ type AppSafe struct {
 
 func NewAppSafe() *AppSafe {
 	// ˅
-	var le1 *walk.LineEdit
-	var te1 *walk.TextEdit
+	var le *walk.LineEdit
+	var te *walk.TextEdit
 	var pb1 *walk.PushButton
 	var pb2 *walk.PushButton
 	var pb3 *walk.PushButton
-	var pb4 *walk.PushButton
 
-	appSafe := &AppSafe{}
-	appSafe.textTime = le1
-	appSafe.textMessage = te1
-	appSafe.state = NewDaytimeState()
-
-	MW := MainWindow{
-		Title:   "State Example",
-		MinSize: Size{300, 300},
-		Layout:  VBox{},
-		Children: []Widget{
-			LineEdit{
-				AssignTo: &appSafe.textTime,
-				ReadOnly: true,
-			},
-			TextEdit{
-				AssignTo: &appSafe.textMessage,
-				ReadOnly: true,
-				VScroll:  true,
-			},
-			Composite{
-				Layout: HBox{},
-				Children: []Widget{
-					PushButton{
-						AssignTo:  &pb1,
-						Text:      "Use a safe",
-						OnClicked: appSafe.useSafe,
-					},
-					PushButton{
-						AssignTo:  &pb2,
-						Text:      "Sound an emergency bell",
-						OnClicked: appSafe.soundBell,
-					},
-					PushButton{
-						AssignTo:  &pb3,
-						Text:      "Make a call",
-						OnClicked: appSafe.call,
-					},
-					PushButton{
-						AssignTo:  &pb4,
-						Text:      "Exit",
-						OnClicked: appSafe.exit,
-					},
-				},
-			},
-		},
+	appSafe := &AppSafe{
+		textTime:    le,
+		textMessage: te,
+		state:       NewDaytimeState(),
 	}
 
 	go appSafe.countTime()
 
-	if _, err := MW.Run(); err != nil {
+	if _, err := (declarative.MainWindow{
+		Title:   "State Example",
+		MinSize: declarative.Size{Width: 300, Height: 300},
+		Size:    declarative.Size{Width: 300, Height: 300},
+		Layout:  declarative.VBox{},
+		Children: []declarative.Widget{
+			declarative.LineEdit{
+				AssignTo: &appSafe.textTime,
+				ReadOnly: true,
+			},
+			declarative.TextEdit{
+				AssignTo: &appSafe.textMessage,
+				ReadOnly: true,
+				VScroll:  true,
+			},
+			declarative.Composite{
+				Layout: declarative.HBox{},
+				Children: []declarative.Widget{
+					declarative.PushButton{
+						AssignTo:  &pb1,
+						Text:      "Use",
+						OnClicked: appSafe.pressedUseButton,
+					},
+					declarative.PushButton{
+						AssignTo:  &pb2,
+						Text:      "Alarm",
+						OnClicked: appSafe.pressedAlarmButton,
+					},
+					declarative.PushButton{
+						AssignTo:  &pb3,
+						Text:      "Phone",
+						OnClicked: appSafe.pressedPhoneButton,
+					},
+				},
+			},
+		},
+	}).Run(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
@@ -100,7 +95,7 @@ func NewAppSafe() *AppSafe {
 }
 
 // Set time
-func (self *AppSafe) SetTime(hour int) {
+func (a *AppSafe) SetTime(hour int) {
 	// ˅
 	var clockString string = "Current Time : "
 	if hour < 10 {
@@ -109,64 +104,58 @@ func (self *AppSafe) SetTime(hour int) {
 		clockString += strconv.Itoa(hour) + ":00"
 	}
 	fmt.Println(clockString)
-	if self.textTime != nil {
-		self.textTime.SetText(clockString)
+	if a.textTime != nil {
+		a.textTime.SetText(clockString)
 	}
-	self.state.SetTime(self, hour)
+	a.state.SetTime(a, hour)
 	// ˄
 }
 
 // Change state
-func (self *AppSafe) ChangeState(state State) {
+func (a *AppSafe) ChangeState(state State) {
 	// ˅
-	fmt.Println("The state changed from " + self.state.ToString() + " to " + state.ToString())
-	self.state = state
+	fmt.Println("The state changed from " + a.state.String() + " to " + state.String())
+	a.state = state
 	// ˄
 }
 
 // Call a security guard room
-func (self *AppSafe) CallSecurityGuardsRoom(msg string) {
+func (a *AppSafe) CallSecurityGuardsRoom(msg string) {
 	// ˅
-	self.textMessage.AppendText("call! " + msg + "\r\n")
+	a.textMessage.AppendText("call! " + msg + "\r\n")
 	// ˄
 }
 
 // Record security log
-func (self *AppSafe) RecordSecurityLog(msg string) {
+func (a *AppSafe) RecordSecurityLog(msg string) {
 	// ˅
-	self.textMessage.AppendText("record ... " + msg + "\r\n")
+	a.textMessage.AppendText("record ... " + msg + "\r\n")
 	// ˄
 }
 
-func (self *AppSafe) useSafe() {
+func (a *AppSafe) pressedUseButton() {
 	// ˅
-	self.state.UseSafe(self)
+	a.state.Use(a)
 	// ˄
 }
 
-func (self *AppSafe) soundBell() {
+func (a *AppSafe) pressedAlarmButton() {
 	// ˅
-	self.state.SoundBell(self)
+	a.state.Alarm(a)
 	// ˄
 }
 
-func (self *AppSafe) call() {
+func (a *AppSafe) pressedPhoneButton() {
 	// ˅
-	self.state.Call(self)
+	a.state.Phone(a)
 	// ˄
 }
 
-func (self *AppSafe) exit() {
-	// ˅
-	os.Exit(0)
-	// ˄
-}
-
-func (self *AppSafe) countTime() {
+func (a *AppSafe) countTime() {
 	// ˅
 	for {
 		for hour := 0; hour < 24; hour++ {
-			self.SetTime(hour) // Set the time
+			a.SetTime(hour) // Set the time
 			time.Sleep(1 * time.Second)
 		}
 	}

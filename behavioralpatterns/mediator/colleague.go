@@ -1,5 +1,5 @@
 // ˅
-package main
+package mediator
 
 // ˄
 
@@ -7,6 +7,8 @@ type Colleague struct {
 	// ˅
 
 	// ˄
+
+	IColleague
 
 	mediator Mediator
 
@@ -18,6 +20,12 @@ type Colleague struct {
 func NewColleague() *Colleague {
 	// ˅
 	return &Colleague{}
+	// ˄
+}
+
+func (c *Colleague) SetMediator(mediator Mediator) {
+	// ˅
+	c.mediator = mediator
 	// ˄
 }
 

@@ -1,7 +1,11 @@
 // ˅
-package main
+package facade
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+)
 
 // ˄
 
@@ -24,7 +28,7 @@ func NewPageCreator() *PageCreator {
 	// ˄
 }
 
-func (self *PageCreator) CreateSimpleHomepage(mailAddress string, htmlFileName string) {
+func (p *PageCreator) CreateSimpleHomepage(mailAddress string, htmlFileName string) {
 	// ˅
 	addressBook := NewDataLibrary()
 	data := addressBook.GetProperties("addressbook")
@@ -36,6 +40,8 @@ func (self *PageCreator) CreateSimpleHomepage(mailAddress string, htmlFileName s
 	writer.Mailto(mailAddress, userName)
 	writer.Close()
 	fmt.Println(htmlFileName + " is created for " + mailAddress + " (" + userName + ")")
+	currentDir, _ := os.Getwd()
+	fmt.Println("Output File: " + filepath.Join(currentDir, htmlFileName))
 	// ˄
 }
 

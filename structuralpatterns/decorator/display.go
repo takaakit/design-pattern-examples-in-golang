@@ -1,32 +1,22 @@
 // ˅
-package main
-
-import "fmt"
+package decorator
 
 // ˄
 
-type Display struct {
-	// ˅
-
-	// ˄
-
+type Display interface {
 	// Column width
-	columns int
+	GetColumns() int
 
 	// Number of rows
-	rows int
+	GetRows() int
+
+	GetLineText(row int) string
+
+	// Show all
+	Show()
 
 	// ˅
 
-	// ˄
-}
-
-// Show all
-func (self *Display) Show(iDisplay IDisplay) {
-	// ˅
-	for i := 0; i < iDisplay.GetRows(); i++ {
-		fmt.Println(iDisplay.GetLineText(i))
-	}
 	// ˄
 }
 

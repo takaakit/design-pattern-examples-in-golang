@@ -1,5 +1,5 @@
 // ˅
-package main
+package facade
 
 import (
 	"fmt"
@@ -34,41 +34,41 @@ func NewHtmlWriter(htmlFileName string) *HtmlWriter {
 }
 
 // Write a title
-func (self *HtmlWriter) Heading(title string) {
+func (h *HtmlWriter) Heading(title string) {
 	// ˅
-	self.writer.WriteString("<html>\n")
-	self.writer.WriteString("<head><title>" + title + "</title></head>\n")
-	self.writer.WriteString("<body>\n")
-	self.writer.WriteString("<h1>" + title + "</h1>\n")
+	h.writer.WriteString("<html>\n")
+	h.writer.WriteString("<head><title>" + title + "</title></head>\n")
+	h.writer.WriteString("<body>\n")
+	h.writer.WriteString("<h1>" + title + "</h1>\n")
 	// ˄
 }
 
 // Write a paragraph
-func (self *HtmlWriter) Paragraph(message string) {
+func (h *HtmlWriter) Paragraph(message string) {
 	// ˅
-	self.writer.WriteString("<p>" + message + "</p>\n")
+	h.writer.WriteString("<p>" + message + "</p>\n")
 	// ˄
 }
 
 // Write a link
-func (self *HtmlWriter) Anchor(url string, text string) {
+func (h *HtmlWriter) Anchor(url string, text string) {
 	// ˅
-	self.writer.WriteString("<a href=\"" + url + "\">" + text + "</a>\n")
+	h.writer.WriteString("<a href=\"" + url + "\">" + text + "</a>\n")
 	// ˄
 }
 
 // Write a mail address
-func (self *HtmlWriter) Mailto(mailAddress string, userName string) {
+func (h *HtmlWriter) Mailto(mailAddress string, userName string) {
 	// ˅
-	self.Anchor("mailto:"+mailAddress, userName)
+	h.Anchor("mailto:"+mailAddress, userName)
 	// ˄
 }
 
-func (self *HtmlWriter) Close() {
+func (h *HtmlWriter) Close() {
 	// ˅
-	self.writer.WriteString("</body>\n")
-	self.writer.WriteString("</html>\n")
-	defer self.writer.Close()
+	h.writer.WriteString("</body>\n")
+	h.writer.WriteString("</html>\n")
+	defer h.writer.Close()
 	// ˄
 }
 

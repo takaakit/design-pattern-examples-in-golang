@@ -1,5 +1,5 @@
 // ˅
-package main
+package builder
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ type HTMLBuilder struct {
 	// ˄
 
 	// File name to create
-	result string
+	fileName string
 
 	writer *os.File
 
@@ -30,42 +30,48 @@ func NewHTMLBuilder() *HTMLBuilder {
 }
 
 // Make a title of HTML file
-func (self *HTMLBuilder) CreateTitle(title string) {
+func (h *HTMLBuilder) CreateTitle(title string) {
 	// ˅
-	self.result = title + ".html" // Set a title as a file name
+	h.fileName = title + ".html" // Set a title as a file name
 	var err error
-	self.writer, err = os.Create(self.result)
+	h.writer, err = os.Create(h.fileName)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	self.writer.WriteString("<html><head><title>" + title + "</title></head><body>\n")
-	self.writer.WriteString("<h1>" + title + "</h1>\n")
+	h.writer.WriteString("<html><head><title>" + title + "</title></head><body>\n")
+	h.writer.WriteString("<h1>" + title + "</h1>\n")
 	// ˄
 }
 
 // Make a section of HTML file
-func (self *HTMLBuilder) CreateSection(section string) {
+func (h *HTMLBuilder) CreateSection(section string) {
 	// ˅
-	self.writer.WriteString("<p>" + section + "</p>\n") // Write a section
+	h.writer.WriteString("<p>" + section + "</p>\n") // Write a section
 	// ˄
 }
 
 // Make items of HTML file
-func (self *HTMLBuilder) CreateItems(items []string) {
+func (h *HTMLBuilder) CreateItems(items []string) {
 	// ˅
-	self.writer.WriteString("<ul>\n") // Write items
+	h.writer.WriteString("<ul>\n") // Write items
 	for i := 0; i < len(items); i++ {
-		self.writer.WriteString("<li>" + items[i] + "</li>\n")
+		h.writer.WriteString("<li>" + items[i] + "</li>\n")
 	}
-	self.writer.WriteString("</ul>\n")
+	h.writer.WriteString("</ul>\n")
 	// ˄
 }
 
-func (self *HTMLBuilder) Close() {
+func (h *HTMLBuilder) Close() {
 	// ˅
-	self.writer.WriteString("</body></html>\n")
-	defer self.writer.Close() // Close file
+	h.writer.WriteString("</body></html>\n")
+	defer h.writer.Close() // Close file
+	// ˄
+}
+
+func (h *HTMLBuilder) GetFileName() string {
+	// ˅
+	return h.fileName
 	// ˄
 }
 

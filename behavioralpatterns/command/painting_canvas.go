@@ -1,5 +1,5 @@
 // ˅
-package main
+package command
 
 import (
 	"os"
@@ -14,12 +14,12 @@ type PaintingCanvas struct {
 
 	// ˄
 
-	paintingColor walk.Color
-
 	// Radius of the painting point
 	pointRadius int
 
 	window *walk.MainWindow
+
+	paintingColor walk.Color
 
 	// ˅
 
@@ -28,42 +28,41 @@ type PaintingCanvas struct {
 
 func NewPaintingCanvas(window *walk.MainWindow) *PaintingCanvas {
 	// ˅
-	paintingCanvas := &PaintingCanvas{}
-	paintingCanvas.window = window
-	paintingCanvas.pointRadius = 6.0
-	paintingCanvas.paintingColor = walk.RGB(0, 0, 255)
-
-	return paintingCanvas
+	return &PaintingCanvas{
+		paintingColor: walk.RGB(128, 255, 128),
+		pointRadius:   10.0,
+		window:        window,
+	}
 	// ˄
 }
 
-func (self *PaintingCanvas) Paint(paintingPosX int, paintingPosY int) {
+func (p *PaintingCanvas) Paint(x int, y int) {
 	// ˅
-	canvas, _ := self.window.CreateCanvas()
+	canvas, _ := p.window.CreateCanvas()
 
-	linesBrush, err := walk.NewSolidColorBrush(self.paintingColor)
+	linesBrush, err := walk.NewSolidColorBrush(p.paintingColor)
 	if err != nil {
 		os.Exit(1)
 	}
 	defer linesBrush.Dispose()
 
-	linesPen, err := walk.NewGeometricPen(walk.PenDash, self.pointRadius*2, linesBrush)
+	linesPen, err := walk.NewGeometricPen(walk.PenDash, p.pointRadius*2, linesBrush)
 	if err != nil {
 		os.Exit(1)
 	}
 	defer linesPen.Dispose()
 
-	if err := canvas.DrawLine(linesPen, walk.Point{paintingPosX, paintingPosY}, walk.Point{paintingPosX, paintingPosY}); err != nil {
+	if err := canvas.DrawLinePixels(linesPen, walk.Point{X: x, Y: y}, walk.Point{X: x, Y: y}); err != nil {
 		os.Exit(1)
 	}
 	// ˄
 }
 
-func (self *PaintingCanvas) Clear() {
+func (p *PaintingCanvas) Clear() {
 	// ˅
-	canvas, _ := self.window.CreateCanvas()
+	canvas, _ := p.window.CreateCanvas()
 
-	bounds := self.window.ClientBounds()
+	bounds := p.window.ClientBoundsPixels()
 
 	ellipseBrush, err := walk.NewSolidColorBrush(walk.RGB(255, 255, 255))
 	if err != nil {
@@ -71,7 +70,7 @@ func (self *PaintingCanvas) Clear() {
 	}
 	defer ellipseBrush.Dispose()
 
-	if err := canvas.FillRectangle(ellipseBrush, bounds); err != nil {
+	if err := canvas.FillRectanglePixels(ellipseBrush, bounds); err != nil {
 		os.Exit(1)
 	}
 	// ˄

@@ -1,7 +1,10 @@
 // ˅
-package main
+package bridge
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 // ˄
 
@@ -10,9 +13,9 @@ type Directory struct {
 
 	// ˄
 
-	FileSystemElement
+	name string
 
-	elements []IFileSystemElement
+	elements []FileSystemElement
 
 	// ˅
 
@@ -21,27 +24,46 @@ type Directory struct {
 
 func NewDirectory(name string) *Directory {
 	// ˅
-	directory := &Directory{}
-	directory.FileSystemElement = *NewFileSystemElement(name, 0)
-	return directory
+	return &Directory{name: name, elements: []FileSystemElement{}}
+	// ˄
+}
+
+func (d *Directory) GetName() string {
+	// ˅
+	return d.name
+	// ˄
+}
+
+func (d *Directory) GetSize() int {
+	// ˅
+	var size int = 0
+	for i := 0; i < len(d.elements); i++ {
+		size += d.elements[i].GetSize()
+	}
+	return size
 	// ˄
 }
 
 // Print this element with the "upperPath".
-func (self *Directory) Print(upperPath string) {
+func (d *Directory) Print(upperPath string) {
 	// ˅
-	fmt.Println(upperPath + "/" + self.ToString())
-	for i := 0; i < len(self.elements); i++ {
-		self.elements[i].Print(upperPath + "/" + self.name)
+	fmt.Println(upperPath + "/" + d.String())
+	for i := 0; i < len(d.elements); i++ {
+		d.elements[i].Print(upperPath + "/" + d.name)
 	}
 	// ˄
 }
 
-// Add a element
-func (self *Directory) Add(element IFileSystemElement) IFileSystemElement {
+func (d *Directory) String() string {
 	// ˅
-	self.elements = append(self.elements, element)
-	return element
+	return d.GetName() + " (" + strconv.Itoa(d.GetSize()) + ")"
+	// ˄
+}
+
+// Add an element
+func (d *Directory) Add(element FileSystemElement) {
+	// ˅
+	d.elements = append(d.elements, element)
 	// ˄
 }
 

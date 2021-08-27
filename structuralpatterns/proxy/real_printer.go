@@ -1,5 +1,5 @@
 // ˅
-package main
+package proxy
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ type RealPrinter struct {
 
 	// ˄
 
-	printerName string
+	name string
 
 	// ˅
 
@@ -22,25 +22,38 @@ type RealPrinter struct {
 
 func NewRealPrinter(name string) *RealPrinter {
 	// ˅
-	realPrinter := &RealPrinter{}
-	realPrinter.printerName = name
+	realPrinter := &RealPrinter{name: name}
 
-	realPrinter.heavyTask("Creating an instance(" + realPrinter.printerName + ") of the Printer")
+	realPrinter.heavyTask("Creating an instance(" + realPrinter.name + ") of the Printer")
 
 	return realPrinter
 	// ˄
 }
 
-// Display a content with the name
-func (self *RealPrinter) Output(content string) {
+func (r *RealPrinter) GetName() string {
 	// ˅
-	fmt.Println("=== " + self.printerName + " ===")
+	return r.name
+	// ˄
+}
+
+func (r *RealPrinter) ChangeName(name string) {
+	// ˅
+	r.name = name
+	// ˄
+}
+
+// Display a content with the name
+func (r *RealPrinter) Output(content string) {
+	// ˅
+	fmt.Println("==========")
 	fmt.Println(content)
+	fmt.Println("Printed by " + r.name)
+	fmt.Println("==========")
 	// ˄
 }
 
 // Heavy task (Please think so...)
-func (self *RealPrinter) heavyTask(message string) {
+func (r *RealPrinter) heavyTask(message string) {
 	// ˅
 	fmt.Print(message)
 	for i := 0; i < 10; i++ {
