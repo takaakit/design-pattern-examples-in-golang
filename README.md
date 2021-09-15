@@ -17,7 +17,7 @@ This project is available for the following objectives:
 <a id="code-example"></a>
 > Golang code example:
 
-```golang:File class
+```go
 // ˅
 package bridge
 
@@ -82,13 +82,12 @@ Installation on Windows
 ------------
 This project uses the [Walk library](https://github.com/lxn/walk), which works only on Windows.
 
-**Astah**
-* Download Astah UML or Professional from [Change Vision site](http://astah.net/download), and install.  
+**UML Modeling Tool**
+* Download the modeling tool [Astah](http://astah.net/download) UML or Professional, and install.  
+* Download [M PLUS](https://sites.google.com/view/m-plus-plugin/download) plug-in **ver.2.7.6** or higher, and add it to Astah.  
+  [How to add plugins to Astah](https://astahblog.com/2014/12/15/astah_plugins/)
 
-**M PLUS plug-in**
-* Download [M PLUS plug-in](https://sites.google.com/view/m-plus-plugin/download) and install. Use **ver.2.7.6** or higher.
-
-**Development Environment for Golang**
+**Golang Development Environment**
 * Install [Golang binary](https://golang.org/dl/).
 * Run `go get github.com/go-delve/delve/cmd/dlv` to install [delve](https://github.com/derekparker/delve/blob/master/Documentation/installation/README.md).
 * Run `go get github.com/lxn/walk` to install [Walk library](https://github.com/lxn/walk).
