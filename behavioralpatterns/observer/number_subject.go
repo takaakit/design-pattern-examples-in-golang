@@ -3,7 +3,7 @@ package observer
 
 // ˄
 
-// Generate a random number.
+// Holds a value and notifies observers when the value is set.
 type NumberSubject struct {
 	// ˅
 
