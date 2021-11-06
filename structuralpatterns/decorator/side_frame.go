@@ -1,7 +1,10 @@
 // ˅
 package decorator
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // ˄
 
@@ -22,6 +25,10 @@ type SideFrame struct {
 
 func NewSideFrame(display Display, frameChar string) *SideFrame {
 	// ˅
+	if len(frameChar) != 1 {
+		fmt.Println("Only one character is allowed in a side frame.")
+		os.Exit(1)
+	}
 	return &SideFrame{Frame: *NewFrame(display), frameChar: frameChar}
 	// ˄
 }
