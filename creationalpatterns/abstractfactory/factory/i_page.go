@@ -8,7 +8,7 @@ type IPage interface {
 
 	Add(item Item)
 
-	// Client-Specified Self pattern
+	// Note: This is the client-specified self pattern.
 	Output(iPage IPage)
 
 	// ˅

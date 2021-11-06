@@ -77,5 +77,5 @@ func create(factory Factory) {
 	linkPage.Add(newspaper)
 	linkPage.Add(searchEngine)
 
-	linkPage.Output(linkPage) // Client-Specified Self pattern
+	linkPage.Output(linkPage) // Note: This is the client-specified self pattern.
 }

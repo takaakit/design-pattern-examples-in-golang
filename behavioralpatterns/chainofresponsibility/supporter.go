@@ -33,8 +33,7 @@ func NewSupporter(name string) *Supporter {
 
 // Trouble support
 // Troubles are sent around.
-// 
-// Client-Specified Self pattern.
+// Note: This is the client-specified self pattern.
 func (s *Supporter) Support(iSupporter ISupporter, trouble *Trouble) {
 	// ˅
 	if iSupporter.CanHandle(trouble) {

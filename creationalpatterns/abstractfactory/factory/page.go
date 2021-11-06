@@ -39,7 +39,7 @@ func (p *Page) Add(item Item) {
 	// ˄
 }
 
-// Client-Specified Self pattern
+// Note: This is the client-specified self pattern.
 func (p *Page) Output(iPage IPage) {
 	// ˅
 	fileName := p.Title + ".html"

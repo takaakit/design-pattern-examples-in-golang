@@ -8,8 +8,7 @@ type ISupporter interface {
 
 	// Trouble support
 	// Troubles are sent around.
-	// 
-	// Client-Specified Self pattern.
+	// Note: This is the client-specified self pattern.
 	Support(iSupporter ISupporter, trouble *Trouble)
 
 	// ˅

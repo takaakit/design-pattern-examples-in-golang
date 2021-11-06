@@ -3,16 +3,16 @@ package strategy
 
 // Hands of rock-scissors-paper
 var handSignals = map[HandSignalType]*HandSignal{
-	Rock:NewHand(Rock),
-	Scissors:NewHand(Scissors),
-	Paper:NewHand(Paper),
+	Rock:     NewHand(Rock),
+	Scissors: NewHand(Scissors),
+	Paper:    NewHand(Paper),
 }
 
 // Characters of the hands
 var name = map[HandSignalType]string{
-	Rock:"Rock",
-	Scissors:"Scissors",
-	Paper:"Paper",
+	Rock:     "Rock",
+	Scissors: "Scissors",
+	Paper:    "Paper",
 }
 
 // Get an instance of the hand
