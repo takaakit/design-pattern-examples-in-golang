@@ -14,8 +14,6 @@ type LargeSizeChar struct {
 
 	// ˄
 
-	charName string
-
 	// Display data of the large size character
 	displayData string
 
@@ -26,7 +24,7 @@ type LargeSizeChar struct {
 
 func NewLargeSizeChar(charName string) *LargeSizeChar {
 	// ˅
-	largeSizeChar := &LargeSizeChar{charName: charName}
+	largeSizeChar := &LargeSizeChar{}
 
 	file, err := os.Open("big" + charName + ".txt")
 	if err != nil {
