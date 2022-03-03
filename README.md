@@ -92,7 +92,7 @@ This project uses the [Walk library](https://github.com/lxn/walk), which works o
 * Run `go get github.com/go-delve/delve/cmd/dlv` to install [delve](https://github.com/derekparker/delve/blob/master/Documentation/installation/README.md).
 * Run `go get github.com/lxn/walk` to install [Walk library](https://github.com/lxn/walk).
 * Install [VS Code](https://code.visualstudio.com/download), add [Golang extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
-* Launch VS Code. Click **View -> Command Pallete (Cmd+Shift+P)** and run `Go: Install/Update Tools`. Check all dependencies and click OK.
+* Launch VS Code. Click **View -> Command Pallete (Ctrl+Shift+P)** and run `> Go: Install/Update Tools`. Check all dependencies and click OK.
 
 Usage on Windows
 -----
