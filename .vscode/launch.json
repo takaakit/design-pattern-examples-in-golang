@@ -6,7 +6,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/chainofresponsibility",
+        "program": "${workspaceFolder}/behavioralpatterns/chainofresponsibility",
         "env": {},
         "args": [
             "-test.v",
@@ -20,7 +20,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/command",
+        "program": "${workspaceFolder}/behavioralpatterns/command",
         "env": {},
         "args": [
             "-test.v",
@@ -34,7 +34,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/interpreter",
+        "program": "${workspaceFolder}/behavioralpatterns/interpreter",
         "env": {},
         "args": [
             "-test.v",
@@ -48,7 +48,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/iterator",
+        "program": "${workspaceFolder}/behavioralpatterns/iterator",
         "env": {},
         "args": [
             "-test.v",
@@ -62,7 +62,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/mediator",
+        "program": "${workspaceFolder}/behavioralpatterns/mediator",
         "env": {},
         "args": [
             "-test.v",
@@ -76,7 +76,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/memento",
+        "program": "${workspaceFolder}/behavioralpatterns/memento",
         "env": {},
         "args": [
             "-test.v",
@@ -90,7 +90,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/observer",
+        "program": "${workspaceFolder}/behavioralpatterns/observer",
         "env": {},
         "args": [
             "-test.v",
@@ -104,7 +104,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/state",
+        "program": "${workspaceFolder}/behavioralpatterns/state",
         "env": {},
         "args": [
             "-test.v",
@@ -118,7 +118,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/strategy",
+        "program": "${workspaceFolder}/behavioralpatterns/strategy",
         "env": {},
         "args": [
             "-test.v",
@@ -132,7 +132,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/templatemethod",
+        "program": "${workspaceFolder}/behavioralpatterns/templatemethod",
         "env": {},
         "args": [
             "-test.v",
@@ -146,7 +146,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/behavioralpatterns/visitor",
+        "program": "${workspaceFolder}/behavioralpatterns/visitor",
         "env": {},
         "args": [
             "-test.v",
@@ -160,7 +160,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/creationalpatterns/abstractfactory",
+        "program": "${workspaceFolder}/creationalpatterns/abstractfactory",
         "env": {},
         "args": [
             "-test.v",
@@ -174,7 +174,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/creationalpatterns/builder",
+        "program": "${workspaceFolder}/creationalpatterns/builder",
         "env": {},
         "args": [
             "-test.v",
@@ -188,7 +188,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/creationalpatterns/factorymethod",
+        "program": "${workspaceFolder}/creationalpatterns/factorymethod",
         "env": {},
         "args": [
             "-test.v",
@@ -202,7 +202,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/creationalpatterns/prototype",
+        "program": "${workspaceFolder}/creationalpatterns/prototype",
         "env": {},
         "args": [
             "-test.v",
@@ -216,7 +216,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/creationalpatterns/singleton",
+        "program": "${workspaceFolder}/creationalpatterns/singleton",
         "env": {},
         "args": [
             "-test.v",
@@ -230,7 +230,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/structuralpatterns/adapter",
+        "program": "${workspaceFolder}/structuralpatterns/adapter",
         "env": {},
         "args": [
             "-test.v",
@@ -244,7 +244,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/structuralpatterns/bridge",
+        "program": "${workspaceFolder}/structuralpatterns/bridge",
         "env": {},
         "args": [
             "-test.v",
@@ -258,7 +258,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/structuralpatterns/composite",
+        "program": "${workspaceFolder}/structuralpatterns/composite",
         "env": {},
         "args": [
             "-test.v",
@@ -272,7 +272,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/structuralpatterns/decorator",
+        "program": "${workspaceFolder}/structuralpatterns/decorator",
         "env": {},
         "args": [
             "-test.v",
@@ -286,7 +286,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/structuralpatterns/facade",
+        "program": "${workspaceFolder}/structuralpatterns/facade",
         "env": {},
         "args": [
             "-test.v",
@@ -300,7 +300,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/structuralpatterns/flyweight",
+        "program": "${workspaceFolder}/structuralpatterns/flyweight",
         "env": {},
         "args": [
             "-test.v",
@@ -314,7 +314,7 @@
         "type": "go",
         "request": "launch",
         "mode": "test",
-        "program": "${workspaceRoot}/structuralpatterns/proxy",
+        "program": "${workspaceFolder}/structuralpatterns/proxy",
         "env": {},
         "args": [
             "-test.v",
