@@ -18,7 +18,7 @@ type Context struct {
 
 	tokens []string
 
-	currentTokenIndex int
+	currentIndex int
 
 	// ˅
 
@@ -33,9 +33,9 @@ func NewContext(text string) *Context {
 
 func (c *Context) NextToken() string {
 	// ˅
-	c.currentTokenIndex++
-	if c.currentTokenIndex < len(c.tokens) {
-		return c.tokens[c.currentTokenIndex]
+	c.currentIndex++
+	if c.currentIndex < len(c.tokens) {
+		return c.tokens[c.currentIndex]
 	} else {
 		return ""
 	}
@@ -44,7 +44,7 @@ func (c *Context) NextToken() string {
 
 func (c *Context) GetToken() string {
 	// ˅
-	return c.tokens[c.currentTokenIndex]
+	return c.tokens[c.currentIndex]
 	// ˄
 }
 
