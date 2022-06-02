@@ -12,7 +12,7 @@ This project is available for the following objectives:
 
 > UML model example:
 
-![](screenshots/CompositePattern.svg "Composite Pattern")
+![](./screenshots/CompositePattern.svg "Composite Pattern")
 
 <a id="code-example"></a>
 > Golang code example:
@@ -102,7 +102,7 @@ This project uses the [Walk library](https://github.com/lxn/walk), which works o
   1. Open the Astah file (model/DesignPatternExamplesInGolang.asta).
   2. Select model elements on the model browser of Astah.
   3. Click the **Generate Code** button.  
-  ![](screenshots/GenerateCode.gif "Generate Code")  
+  ![](./screenshots/GenerateCode.gif "Generate Code")  
   The generated code has **User Code Area**. The User Code Area is the area enclosed by "˅" and "˄". Handwritten code written in the User Code Area remains after a re-generation. [View code example](#code-example).  
   For detailed usage of the tools, please see [Astah Manual](http://astah.net/manual) and [M PLUS plug-in Tips](https://sites.google.com/view/m-plus-plugin-tips).
 
@@ -111,7 +111,7 @@ This project uses the [Walk library](https://github.com/lxn/walk), which works o
   2. Select the **Run and Debug** icon in the Activity Bar on the side of VS Code.
   3. Select the configuration named Debug Program using the Configuration drop-down in the Run view.
   4. Click the **Start Debugging** button.  
-     ![](screenshots/BuildAndRun.gif "Build and Run")  
+     ![](./screenshots/BuildAndRun.gif "Build and Run")  
 
 References
 ----------
