@@ -88,6 +88,10 @@ func (a *AppMain) undo() {
 	a.canvas.Clear()
 	a.history.Undo()
 	a.history.Execute()
+
+	// Move buttons hidden in the back to the front
+	a.buttonUndo.SetFocus()
+	a.buttonClear.SetFocus()
 	// ˄
 }
 
@@ -95,6 +99,10 @@ func (a *AppMain) clear() {
 	// ˅
 	a.canvas.Clear()
 	a.history.Clear()
+
+	// Move buttons hidden in the back to the front
+	a.buttonUndo.SetFocus()
+	a.buttonClear.SetFocus()
 	// ˄
 }
 
