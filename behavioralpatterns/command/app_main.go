@@ -48,6 +48,7 @@ func NewAppMain() *AppMain {
 		Title:    "Command Example",
 		MinSize:  declarative.Size{Width: 400, Height: 300},
 		Size:     declarative.Size{Width: 400, Height: 300},
+		Background: declarative.SolidColorBrush{Color: walk.RGB(255, 255, 255)},
 		OnMouseMove: func(x int, y int, btn walk.MouseButton) {
 			if btn == walk.LeftButton {
 				appMain.onDragged(x, y)
