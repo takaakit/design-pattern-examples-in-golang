@@ -41,6 +41,9 @@ After parsing  : [program [repeat 4 [forward, right]]]
 */
 
 func TestMain(m *testing.M) {
+
+	// Reads commands line by line from the "program.txt" and parses them.
+
 	var fileName = "program.txt"
 	f, err := os.Open(fileName)
 	if err != nil {

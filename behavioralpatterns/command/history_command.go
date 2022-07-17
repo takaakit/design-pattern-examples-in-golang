@@ -23,6 +23,7 @@ func NewHistoryCommand() *HistoryCommand {
 	// ˄
 }
 
+// Execute all past commands
 func (h *HistoryCommand) Execute() {
 	// ˅
 	for i := 0; i < len(h.pastCommands); i++ {
