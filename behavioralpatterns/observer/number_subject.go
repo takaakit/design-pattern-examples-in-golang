@@ -26,6 +26,7 @@ func NewNumberSubject() *NumberSubject {
 
 func (n *NumberSubject) SetValue(value int) {
 	// ˅
+	// Notify observers when the value is set.
 	n.value = value
 	n.NotifyObservers()
 	// ˄
