@@ -154,6 +154,7 @@ func (a *AppSafe) pressedPhoneButton() {
 func (a *AppSafe) countTime() {
 	// ˅
 	for {
+		// Advance one hour for every second of real time.
 		for hour := 0; hour < 24; hour++ {
 			a.SetTime(hour) // Set the time
 			time.Sleep(1 * time.Second)

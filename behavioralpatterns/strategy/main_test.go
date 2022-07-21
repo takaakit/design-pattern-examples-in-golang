@@ -18,6 +18,8 @@ func TestMain(m *testing.M) {
 	for i := 0; i < 100; i++ {
 		handOfPlayer1 := player1.ShowHandSignal()
 		handOfPlayer2 := player2.ShowHandSignal()
+
+		// Judge win, loss, or draw
 		var resultOfPlayer1 GameResultType
 		var resultOfPlayer2 GameResultType
 		if handOfPlayer1.IsStrongerThan(handOfPlayer2) {
@@ -33,6 +35,7 @@ func TestMain(m *testing.M) {
 			resultOfPlayer1 = Draw
 			resultOfPlayer2 = Draw
 		}
+
 		player1.NotifyGameResult(resultOfPlayer1, handOfPlayer1, handOfPlayer2)
 		player2.NotifyGameResult(resultOfPlayer2, handOfPlayer2, handOfPlayer1)
 	}
