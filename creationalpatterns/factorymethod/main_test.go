@@ -15,7 +15,7 @@ The "createProduct()" is called a Factory Method, and it is responsible for manu
 func TestMain(m *testing.M) {
 	factory := NewCreditCardFactory()
 
-	jacksonCard := factory.Create(factory, "Jacson")
+	jacksonCard := factory.Create(factory, "Jackson")
 	jacksonCard.Use()
 
 	sophiaCard := factory.Create(factory, "Sophia")
