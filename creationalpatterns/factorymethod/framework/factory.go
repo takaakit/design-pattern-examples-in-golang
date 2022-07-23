@@ -26,11 +26,12 @@ func NewFactory() *Factory {
 // (Evaluating the GO Programming Language with Design Patterns)
 func (f *Factory) Create(ifactory IFactory, owner string) Product {
 	// ˅
-	// Write pre-creation code here, if any.
+	// Write pre-creation code here.
 
+	// Encapsulate the knowledge of which Product subclass to create and move this knowledge out of the framework.
 	product := ifactory.CreateProduct(owner)
 
-	// Write post-creation code here, if any.
+	// Write post-creation code here.
 
 	return product
 	// ˄
