@@ -3,6 +3,7 @@ package main
 
 // ˄
 
+// Adapt the MessageDisplay interface to the Print interface.
 type PrintMessageDisplay struct {
 	// ˅
 
