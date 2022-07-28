@@ -26,7 +26,11 @@ func NewProxyPrinter(name string) *ProxyPrinter {
 
 func (p *ProxyPrinter) GetName() string {
 	// ˅
-	return p.currentName
+	if p.real != nil {
+		return p.real.GetName()
+	} else {
+		return p.currentName
+	}
 	// ˄
 }
 
