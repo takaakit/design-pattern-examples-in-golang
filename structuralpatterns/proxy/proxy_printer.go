@@ -47,7 +47,7 @@ func (p *ProxyPrinter) ChangeName(name string) {
 
 func (p *ProxyPrinter) Output(content string) {
 	// ˅
-	// Check to see if the the RealPrinter had been created, create it if necessary.
+	// Check to see if the RealPrinter had been created, create it if necessary.
 	if p.real == nil {
 		p.real = NewRealPrinter(p.currentName)
 	}
