@@ -12,14 +12,14 @@ type File struct {
 
 	name string
 
-	size int32
+	size int
 
 	// ˅
 
 	// ˄
 }
 
-func NewFile(name string, size int32) *File {
+func NewFile(name string, size int) *File {
 	// ˅
 	return &File{name: name, size: size}
 	// ˄
@@ -37,7 +37,7 @@ func (f *File) GetName() string {
 	// ˄
 }
 
-func (f *File) GetSize() int32 {
+func (f *File) GetSize() int {
 	// ˅
 	return f.size
 	// ˄

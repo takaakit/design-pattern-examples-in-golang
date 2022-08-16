@@ -39,9 +39,9 @@ func (d *Directory) GetName() string {
 	// ˄
 }
 
-func (d *Directory) GetSize() int32 {
+func (d *Directory) GetSize() int {
 	// ˅
-	var size int32 = 0
+	var size int = 0
 	for _, iFileSystemElement := range d.fileSystemElements {
 		size += iFileSystemElement.GetSize()
 	}

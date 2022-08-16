@@ -8,7 +8,7 @@ type FileSystemElement interface {
 
 	GetName() string
 
-	GetSize() int32
+	GetSize() int
 
 	String() string
 
