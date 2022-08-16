@@ -4,7 +4,7 @@ package prototype
 import (
 	"fmt"
 	"strings"
-	
+
 	. "github.com/takaakit/design-pattern-examples-in-golang/creationalpatterns/prototype/framework"
 )
 
