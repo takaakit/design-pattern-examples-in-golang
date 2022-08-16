@@ -13,7 +13,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/Command",
@@ -27,7 +28,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/Interpreter",
@@ -41,7 +43,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/Iterator",
@@ -55,7 +58,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/Mediator",
@@ -69,7 +73,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/Memento",
@@ -83,7 +88,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/Observer",
@@ -97,7 +103,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/State",
@@ -111,7 +118,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/Strategy",
@@ -125,7 +133,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/TemplateMethod",
@@ -139,7 +148,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug BehavioralPatterns/Visitor",
@@ -153,7 +163,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug CreationalPatterns/AbstractFactory",
@@ -167,7 +178,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug CreationalPatterns/Builder",
@@ -181,7 +193,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug CreationalPatterns/FactoryMethod",
@@ -195,7 +208,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug CreationalPatterns/Prototype",
@@ -209,7 +223,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug CreationalPatterns/Singleton",
@@ -223,7 +238,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug StructuralPatterns/Adapter",
@@ -237,7 +253,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug StructuralPatterns/Bridge",
@@ -251,7 +268,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug StructuralPatterns/Composite",
@@ -265,7 +283,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug StructuralPatterns/Decorator",
@@ -279,7 +298,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug StructuralPatterns/Facade",
@@ -293,7 +313,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug StructuralPatterns/Flyweight",
@@ -307,7 +328,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       },
       {
         "name": "Debug StructuralPatterns/Proxy",
@@ -321,7 +343,8 @@
             "-test.run",
             "TestMain"
         ],
-        "showLog": false
+        "showLog": false,
+        "console": "integratedTerminal"
       }
     ]
   }
