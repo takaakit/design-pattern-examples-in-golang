@@ -17,7 +17,7 @@ type LazySupporter struct {
 
 func NewLazySupporter(name string) *LazySupporter {
 	// ˅
-	return &LazySupporter{Supporter: Supporter{name: name}}
+	return &LazySupporter{Supporter: *NewSupporter(name)}
 	// ˄
 }
 

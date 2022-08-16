@@ -19,7 +19,7 @@ type SpecialSupporter struct {
 
 func NewSpecialSupporter(name string, targetID int) *SpecialSupporter {
 	// ˅
-	return &SpecialSupporter{Supporter: Supporter{name: name}, targetID: targetID}
+	return &SpecialSupporter{Supporter: *NewSupporter(name), targetID: targetID}
 	// ˄
 }
 

@@ -17,7 +17,7 @@ type MoodySupporter struct {
 
 func NewMoodySupporter(name string) *MoodySupporter {
 	// ˅
-	return &MoodySupporter{Supporter: Supporter{name: name}}
+	return &MoodySupporter{Supporter: *NewSupporter(name)}
 	// ˄
 }
 

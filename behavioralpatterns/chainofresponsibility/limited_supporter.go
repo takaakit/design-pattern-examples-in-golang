@@ -19,7 +19,7 @@ type LimitedSupporter struct {
 
 func NewLimitedSupporter(name string, limitId int) *LimitedSupporter {
 	// ˅
-	return &LimitedSupporter{Supporter: Supporter{name: name}, limitId: limitId}
+	return &LimitedSupporter{Supporter: *NewSupporter(name), limitId: limitId}
 	// ˄
 }
 
