@@ -3,6 +3,8 @@ package prototype
 
 import (
 	"fmt"
+	"strings"
+	
 	. "github.com/takaakit/design-pattern-examples-in-golang/creationalpatterns/prototype/framework"
 )
 
@@ -34,13 +36,8 @@ func (u *UnderlineDisplay) Clone() Display {
 
 func (u *UnderlineDisplay) Show(message string) {
 	// ˅
-	var length = len(message)
 	fmt.Println("\"" + message + "\"")
-	fmt.Print(" ")
-	for i := 0; i < length; i++ {
-		fmt.Print(u.underlineChar)
-	}
-	fmt.Println("")
+	fmt.Println(" " + strings.Repeat(u.underlineChar, len(message)))
 	// ˄
 }
 

@@ -1,7 +1,10 @@
 // ˅
 package bridge
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // ˄
 
@@ -50,10 +53,8 @@ func (t *TextDisplayImpl) ImplClose() {
 
 func (t *TextDisplayImpl) printLine() {
 	// ˅
-	fmt.Print("*")                 // Display "*" mark at the beginning of a frame.
-	for i := 0; i < t.width; i++ { // Display "." for the number of "width".
-		fmt.Print(".")
-	}
+	fmt.Print("*")                          // Display "*" mark at the beginning of a frame.
+	fmt.Print(strings.Repeat(".", t.width)) // Display "." for the number of "width".
 	fmt.Println("*") // Display "*" mark at the end of a frame.
 	// ˄
 }

@@ -37,8 +37,8 @@ func (d *Directory) GetName() string {
 func (d *Directory) GetSize() int {
 	// ˅
 	var size int = 0
-	for i := 0; i < len(d.elements); i++ {
-		size += d.elements[i].GetSize()
+	for _, element := range d.elements {
+		size += element.GetSize()
 	}
 	return size
 	// ˄
@@ -48,8 +48,8 @@ func (d *Directory) GetSize() int {
 func (d *Directory) Print(upperPath string) {
 	// ˅
 	fmt.Println(upperPath + "/" + d.String())
-	for i := 0; i < len(d.elements); i++ {
-		d.elements[i].Print(upperPath + "/" + d.name)
+	for _, element := range d.elements {
+		element.Print(upperPath + "/" + d.name)
 	}
 	// ˄
 }

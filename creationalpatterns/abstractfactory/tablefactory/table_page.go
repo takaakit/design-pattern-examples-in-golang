@@ -32,8 +32,8 @@ func (t *TablePage) ToHTML() string {
 	buffer.WriteString("<html><head><title>" + t.Title + "</title></head><body>\n")
 	buffer.WriteString("<h1>" + t.Title + "</h1>\n")
 	buffer.WriteString("<table width=\"80%\" border=\"3\">\n")
-	for i := 0; i < len(t.Contents); i++ {
-		buffer.WriteString("<tr>" + t.Contents[i].ToHTML() + "</tr>\n")
+	for _, content := range t.Contents {
+		buffer.WriteString("<tr>" + content.ToHTML() + "</tr>\n")
 	}
 	buffer.WriteString("</table>\n")
 	buffer.WriteString("<hr><address>" + t.Author + "</address>\n")

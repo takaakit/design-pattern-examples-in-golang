@@ -43,8 +43,8 @@ func (p *PlainTextBuilder) CreateSection(section string) {
 // Make items of plain text
 func (p *PlainTextBuilder) CreateItems(items []string) {
 	// ˅
-	for i := 0; i < len(items); i++ {
-		p.buffer.WriteString("  - " + items[i] + "\n") // Items
+	for _, item := range items {
+		p.buffer.WriteString("  - " + item + "\n") // Item
 	}
 	p.buffer.WriteString("\n") // Blank line
 	// ˄

@@ -32,8 +32,8 @@ func (l *ListPage) ToHTML() string {
 	buffer.WriteString("<html><head><title>" + l.Title + "</title></head>\n")
 	buffer.WriteString("<body><h1>" + l.Title + "</h1>\n")
 	buffer.WriteString("<ul>\n")
-	for i := 0; i < len(l.Contents); i++ {
-		buffer.WriteString(l.Contents[i].ToHTML())
+	for _, content := range l.Contents {
+		buffer.WriteString(content.ToHTML())
 	}
 	buffer.WriteString("</ul>\n")
 	buffer.WriteString("<hr><address>" + l.Author + "</address>")

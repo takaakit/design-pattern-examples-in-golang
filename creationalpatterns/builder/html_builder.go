@@ -55,8 +55,8 @@ func (h *HTMLBuilder) CreateSection(section string) {
 func (h *HTMLBuilder) CreateItems(items []string) {
 	// ˅
 	h.writer.WriteString("<ul>\n") // Write items
-	for i := 0; i < len(items); i++ {
-		h.writer.WriteString("<li>" + items[i] + "</li>\n")
+	for _, item := range items {
+		h.writer.WriteString("<li>" + item + "</li>\n")
 	}
 	h.writer.WriteString("</ul>\n")
 	// ˄

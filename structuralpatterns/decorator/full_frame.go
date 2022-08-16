@@ -1,7 +1,10 @@
 // ˅
 package decorator
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // ˄
 
@@ -61,11 +64,7 @@ func (f *FullFrame) Show() {
 
 func (f *FullFrame) createLine(ch string, size int) string {
 	// ˅
-	var buf string = ""
-	for i := 0; i < size; i++ {
-		buf += ch
-	}
-	return buf
+	return strings.Repeat(ch, size)
 	// ˄
 }
 

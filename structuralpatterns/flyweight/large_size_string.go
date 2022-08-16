@@ -30,8 +30,8 @@ func NewLargeSizeString(displayData string) *LargeSizeString {
 
 func (l *LargeSizeString) Display() {
 	// ˅
-	for i := 0; i < len(l.largeSizeChars); i++ {
-		l.largeSizeChars[i].Display()
+	for _, largeSizeChar := range l.largeSizeChars {
+		largeSizeChar.Display()
 	}
 	// ˄
 }

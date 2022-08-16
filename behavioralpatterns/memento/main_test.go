@@ -26,7 +26,7 @@ func TestMain(m *testing.M) {
 
 		// Determine the behavior of the Memento
 		if gamer.Money() > memento.Money() {
-			fmt.Println("(Gamers' money is the highest ever, so record the current state.)")
+			fmt.Println("(Gamer's money is the highest ever, so record the current state.)")
 			memento = gamer.CreateMemento()
 		} else if gamer.Money() < memento.Money()/2 {
 			fmt.Println("(Gamer's money is less than half of the highest amount, so return to the recorded state.)")

@@ -33,8 +33,8 @@ func (t *TableData) ToHTML() string {
 	buffer.WriteString("<td><table width=\"100%\" border=\"2\">\n")
 	buffer.WriteString("<tr><td bgcolor=\"#00CC00\" align=\"center\" colspan=\"" + strconv.Itoa(len(t.Items)) + "\"><b>" + t.Name + "</b></td></tr>\n")
 	buffer.WriteString("<tr>\n")
-	for i := 0; i < len(t.Items); i++ {
-		buffer.WriteString(t.Items[i].ToHTML())
+	for _, item := range t.Items {
+		buffer.WriteString(item.ToHTML())
 	}
 	buffer.WriteString("</tr>\n")
 	buffer.WriteString("</table></td>\n")

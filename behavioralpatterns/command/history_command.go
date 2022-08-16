@@ -26,8 +26,8 @@ func NewHistoryCommand() *HistoryCommand {
 // Execute all past commands
 func (h *HistoryCommand) Execute() {
 	// ˅
-	for i := 0; i < len(h.pastCommands); i++ {
-		h.pastCommands[i].Execute()
+	for _, command := range h.pastCommands {
+		command.Execute()
 	}
 	// ˄
 }
@@ -41,11 +41,9 @@ func (h *HistoryCommand) Add(cmd Command) {
 // Delete the last command
 func (h *HistoryCommand) Undo() {
 	// ˅
-	var tmpCommands []Command
-	for i := 0; i < len(h.pastCommands)-1; i++ {
-		tmpCommands = append(tmpCommands, h.pastCommands[i])
+	if len(h.pastCommands) >= 1 {
+		h.pastCommands = h.pastCommands[:len(h.pastCommands)-1]
 	}
-	h.pastCommands = tmpCommands
 	// ˄
 }
 

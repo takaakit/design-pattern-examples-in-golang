@@ -1,7 +1,10 @@
 // ˅
 package templatemethod
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // ˄
 
@@ -49,9 +52,7 @@ func (s *StringDisplay) Close() {
 func (s *StringDisplay) writeLine() {
 	// ˅
 	fmt.Print("+") // Display an end mark "+"
-	for i := 0; i < s.width; i++ {
-		fmt.Print("-") // Display a line "-"
-	}
+	fmt.Print(strings.Repeat("-", s.width)) // Display a line "-"
 	fmt.Println("+") //  Display an end mark "+"
 	// ˄
 }

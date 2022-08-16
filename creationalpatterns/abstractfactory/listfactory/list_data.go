@@ -30,8 +30,8 @@ func (l *ListData) ToHTML() string {
 	// ˅
 	var buffer bytes.Buffer
 	buffer.WriteString("<li>" + l.Name + "<ul>\n")
-	for i := 0; i < len(l.Items); i++ {
-		buffer.WriteString(l.Items[i].ToHTML())
+	for _, item := range l.Items {
+		buffer.WriteString(item.ToHTML())
 	}
 	buffer.WriteString("</ul></li>\n")
 	return buffer.String()

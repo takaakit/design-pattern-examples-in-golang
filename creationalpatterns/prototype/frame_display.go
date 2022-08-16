@@ -3,6 +3,8 @@ package prototype
 
 import (
 	"fmt"
+	"strings"
+
 	. "github.com/takaakit/design-pattern-examples-in-golang/creationalpatterns/prototype/framework"
 )
 
@@ -34,16 +36,9 @@ func (f *FrameDisplay) Clone() Display {
 
 func (f *FrameDisplay) Show(message string) {
 	// ˅
-	var length = len(message)
-	for i := 0; i < length+4; i++ {
-		fmt.Print(f.borderChar)
-	}
-	fmt.Println("")
+	fmt.Println(strings.Repeat(f.borderChar, len(message)+4))
 	fmt.Println(f.borderChar + " " + message + " " + f.borderChar)
-	for i := 0; i < length+4; i++ {
-		fmt.Print(f.borderChar)
-	}
-	fmt.Println("")
+	fmt.Println(strings.Repeat(f.borderChar, len(message)+4))
 	// ˄
 }
 
