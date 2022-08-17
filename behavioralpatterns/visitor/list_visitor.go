@@ -40,8 +40,7 @@ func (l *ListVisitor) VisitDirectory(directory *Directory) {
 	var visitedDirectory = l.currentDirectory
 	l.currentDirectory = l.currentDirectory + "/" + directory.name
 	for _, iFileSystemElement := range directory.fileSystemElements {
-		var element Element = iFileSystemElement
-		element.Accept(l)
+		iFileSystemElement.Accept(l)
 	}
 	l.currentDirectory = visitedDirectory
 	// ˄

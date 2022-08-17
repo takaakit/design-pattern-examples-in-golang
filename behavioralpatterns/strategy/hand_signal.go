@@ -55,7 +55,7 @@ func (h *HandSignal) IsWeakerThan(hand *HandSignal) bool {
 	// ˄
 }
 
-func (h *HandSignal) ToString() string {
+func (h *HandSignal) String() string {
 	// ˅
 	return name[h.value]
 	// ˄

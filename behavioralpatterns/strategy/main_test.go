@@ -23,11 +23,11 @@ func TestMain(m *testing.M) {
 		var resultOfPlayer1 GameResultType
 		var resultOfPlayer2 GameResultType
 		if handOfPlayer1.IsStrongerThan(handOfPlayer2) {
-			fmt.Println("Winner: " + player1.ToString())
+			fmt.Println("Winner: " + player1.String())
 			resultOfPlayer1 = Win
 			resultOfPlayer2 = Loss
 		} else if handOfPlayer2.IsStrongerThan(handOfPlayer1) {
-			fmt.Println("Winner: " + player2.ToString())
+			fmt.Println("Winner: " + player2.String())
 			resultOfPlayer1 = Loss
 			resultOfPlayer2 = Win
 		} else {
@@ -40,6 +40,6 @@ func TestMain(m *testing.M) {
 		player2.NotifyGameResult(resultOfPlayer2, handOfPlayer2, handOfPlayer1)
 	}
 	fmt.Println("RESULT:")
-	fmt.Println(player1.ToString())
-	fmt.Println(player2.ToString())
+	fmt.Println(player1.String())
+	fmt.Println(player2.String())
 }

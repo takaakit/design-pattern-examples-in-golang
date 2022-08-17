@@ -56,7 +56,7 @@ func (p *Player) NotifyGameResult(result GameResultType, ownHand *HandSignal, op
 	// ˄
 }
 
-func (p *Player) ToString() string {
+func (p *Player) String() string {
 	// ˅
 	return p.name + " [" + strconv.Itoa(p.gameCount) + " games, " + strconv.Itoa(p.winCount) + " won, " + strconv.Itoa(p.lossCount) + " lost, " + strconv.Itoa(p.gameCount-p.winCount-p.lossCount) + " drew]"
 	// ˄

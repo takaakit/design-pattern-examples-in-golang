@@ -53,7 +53,7 @@ func (s *StringDisplay) writeLine() {
 	// ˅
 	fmt.Print("+")                          // Display an end mark "+"
 	fmt.Print(strings.Repeat("-", s.width)) // Display a line "-"
-	fmt.Println("+")                        //  Display an end mark "+"
+	fmt.Println("+")                        // Display an end mark "+"
 	// ˄
 }
 
