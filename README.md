@@ -106,12 +106,10 @@ This project uses the [Walk library](https://github.com/lxn/walk), which works o
   The generated code has **User Code Area**. The User Code Area is the area enclosed by "˅" and "˄". Handwritten code written in the User Code Area remains after a re-generation. [View code example](#code-example).  
   For detailed usage of the tools, please see [Astah Manual](http://astah.net/manual) and [M PLUS plug-in Tips](https://sites.google.com/view/m-plus-plugin-tips).
 
-**Build and Run (in Debug Mode)**
+**Run (as a test run)**
   1. Open the workspace file (design-pattern-examples-in-golang.code-workspace) in VS Code.
-  2. Select the **Run and Debug** icon in the Activity Bar on the side of VS Code.
-  3. Select the configuration named Debug Program using the Configuration drop-down in the Run view.
-  4. Click the **Start Debugging** button.  
-     ![](./screenshots/BuildAndRun.gif "Build and Run")  
+  2. Open `main_test.go` for the pattern you want to run, and click **Run > Start Debugging** (or press F5).  
+     ![](./screenshots/Run.gif "Run")  
 
 References
 ----------
