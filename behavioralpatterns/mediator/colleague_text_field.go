@@ -30,7 +30,7 @@ func NewColleagueTextField(lineEdit *walk.LineEdit) *ColleagueTextField {
 // Set enable/disable from the Mediator
 func (c *ColleagueTextField) SetActivation(isEnable bool) {
 	// ˅
-	c.lineEdit.SetReadOnly(!isEnable)
+	_ = c.lineEdit.SetReadOnly(!isEnable)
 	// ˄
 }
 

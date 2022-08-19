@@ -68,7 +68,7 @@ func (h *HtmlWriter) Close() {
 	// ˅
 	h.writer.WriteString("</body>\n")
 	h.writer.WriteString("</html>\n")
-	defer h.writer.Close()
+	h.writer.Close()
 	// ˄
 }
 

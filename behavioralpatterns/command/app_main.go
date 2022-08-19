@@ -43,7 +43,7 @@ func NewAppMain() *AppMain {
 		canvas:      NewPaintingCanvas(mw),
 	}
 
-	if _, err := (declarative.MainWindow{
+	_, err := declarative.MainWindow{
 		AssignTo:   &appMain.canvas.window,
 		Title:      "Command Example",
 		MinSize:    declarative.Size{Width: 400, Height: 300},
@@ -67,7 +67,9 @@ func NewAppMain() *AppMain {
 				OnClicked: appMain.clear,
 			},
 		},
-	}.Run()); err != nil {
+	}.Run()
+
+	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
@@ -91,8 +93,8 @@ func (a *AppMain) undo() {
 	a.history.Execute()
 
 	// Move buttons hidden in the back to the front
-	a.buttonUndo.SetFocus()
-	a.buttonClear.SetFocus()
+	_ = a.buttonUndo.SetFocus()
+	_ = a.buttonClear.SetFocus()
 	// ˄
 }
 
@@ -102,8 +104,8 @@ func (a *AppMain) clear() {
 	a.history.Clear()
 
 	// Move buttons hidden in the back to the front
-	a.buttonUndo.SetFocus()
-	a.buttonClear.SetFocus()
+	_ = a.buttonUndo.SetFocus()
+	_ = a.buttonClear.SetFocus()
 	// ˄
 }
 

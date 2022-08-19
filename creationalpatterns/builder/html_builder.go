@@ -65,7 +65,7 @@ func (h *HTMLBuilder) CreateItems(items []string) {
 func (h *HTMLBuilder) Close() {
 	// ˅
 	h.writer.WriteString("</body></html>\n")
-	defer h.writer.Close() // Close file
+	h.writer.Close() // Close file
 	// ˄
 }
 

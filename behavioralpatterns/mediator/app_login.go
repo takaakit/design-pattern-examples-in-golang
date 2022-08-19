@@ -65,7 +65,7 @@ func (a *AppLogin) CreateColleagues() {
 
 	// Create main window
 	var mw *walk.MainWindow
-	if err := (declarative.MainWindow{
+	err := declarative.MainWindow{
 		AssignTo: &mw,
 		Title:    "Mediator Example",
 		MinSize:  declarative.Size{Width: 250, Height: 200},
@@ -136,7 +136,9 @@ func (a *AppLogin) CreateColleagues() {
 				},
 			},
 		},
-	}.Create()); err != nil {
+	}.Create()
+
+	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}

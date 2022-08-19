@@ -49,7 +49,7 @@ func NewAppSafe() *AppSafe {
 
 	go appSafe.countTime()
 
-	if _, err := (declarative.MainWindow{
+	_, err := declarative.MainWindow{
 		Title:   "State Example",
 		MinSize: declarative.Size{Width: 300, Height: 300},
 		Size:    declarative.Size{Width: 300, Height: 300},
@@ -85,7 +85,9 @@ func NewAppSafe() *AppSafe {
 				},
 			},
 		},
-	}).Run(); err != nil {
+	}.Run()
+
+	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
@@ -105,7 +107,7 @@ func (a *AppSafe) SetTime(hour int) {
 	}
 	fmt.Println(clockString)
 	if a.textTime != nil {
-		a.textTime.SetText(clockString)
+		_ = a.textTime.SetText(clockString)
 	}
 	a.state.SetTime(a, hour)
 	// ˄
