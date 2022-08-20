@@ -20,7 +20,7 @@ func TestMain(m *testing.M) {
 	var pb1 *walk.PushButton
 	var pb2 *walk.PushButton
 
-	mainWindow := declarative.MainWindow{
+	_, err := declarative.MainWindow{
 		Title:   "Choose 1 or 2",
 		MinSize: declarative.Size{Width: 200, Height: 50},
 		Size:    declarative.Size{Width: 200, Height: 50},
@@ -58,9 +58,9 @@ func TestMain(m *testing.M) {
 				},
 			},
 		},
-	}
+	}.Run()
 
-	if _, err := mainWindow.Run(); err != nil {
+	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
