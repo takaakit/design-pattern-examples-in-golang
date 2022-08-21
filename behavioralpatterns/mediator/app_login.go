@@ -47,15 +47,15 @@ func (a *AppLogin) CreateColleagues() {
 	// Create LineEdit, PushButton and RadioButton
 	var rd1 *walk.RadioButton
 	var rd2 *walk.RadioButton
-	var edit1 *walk.LineEdit
-	var edit2 *walk.LineEdit
+	var le1 *walk.LineEdit
+	var le2 *walk.LineEdit
 	var pb1 *walk.PushButton
 	var pb2 *walk.PushButton
 
 	a.radioGuest = NewColleagueRadioButton(rd1)
 	a.radioLogin = NewColleagueRadioButton(rd2)
-	a.textUsername = NewColleagueTextField(edit1)
-	a.textPassword = NewColleagueTextField(edit2)
+	a.textUsername = NewColleagueTextField(le1)
+	a.textPassword = NewColleagueTextField(le2)
 	a.buttonOk = NewColleagueButton(pb1)
 	a.buttonCancel = NewColleagueButton(pb2)
 

@@ -49,7 +49,7 @@ Please enter digits (ex. 1212123): 123
 */
 
 func TestMain(m *testing.M) {
-	var edit *walk.LineEdit
+	var le *walk.LineEdit
 	var pb *walk.PushButton
 
 	_, err := declarative.MainWindow{
@@ -62,14 +62,14 @@ func TestMain(m *testing.M) {
 				Text: "Please enter digits (ex. 1212123):",
 			},
 			declarative.LineEdit{
-				AssignTo: &edit,
+				AssignTo: &le,
 				MinSize:  declarative.Size{Width: 110, Height: 0},
 			},
 			declarative.PushButton{
 				AssignTo: &pb,
 				Text:     "OK",
 				OnClicked: func() {
-					lss := NewLargeSizeString(edit.Text())
+					lss := NewLargeSizeString(le.Text())
 					lss.Display()
 
 					os.Exit(0)

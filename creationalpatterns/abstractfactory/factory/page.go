@@ -43,14 +43,18 @@ func (p *Page) Add(item Item) {
 func (p *Page) Output(iPage IPage) {
 	// ˅
 	fileName := p.Title + ".html"
-	file, err := os.Create(fileName)
-	if err != nil {
-		fmt.Println(err)
+	file, err1 := os.Create(fileName)
+	if err1 != nil {
+		fmt.Println(err1)
 		os.Exit(1)
 	}
 	defer file.Close()
 
-	file.Write(([]byte)(iPage.ToHTML()))
+	_, err2 := file.Write(([]byte)(iPage.ToHTML()))
+	if err2 != nil {
+		fmt.Println(err1)
+		os.Exit(1)
+	}
 	fmt.Println(fileName + " has been created.")
 	currentDir, _ := os.Getwd()
 	fmt.Println("Output File: " + filepath.Join(currentDir, fileName))
