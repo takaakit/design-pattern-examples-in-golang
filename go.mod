@@ -1,6 +1,6 @@
 module github.com/takaakit/design-pattern-examples-in-golang
 
-go 1.19
+go 1.20
 
 require github.com/lxn/walk v0.0.0-20210112085537-c389da54e794
 

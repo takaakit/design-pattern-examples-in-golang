@@ -88,7 +88,7 @@ This project uses the [Walk library](https://github.com/lxn/walk), which works o
   [How to add plugins to Astah](https://astahblog.com/2014/12/15/astah_plugins/)
 
 **Golang Development Environment**
-* Install [Golang](https://golang.org/dl/) **ver.1.19** or higher.
+* Install [Golang](https://golang.org/dl/) **ver.1.20** or higher.
 * Run `go install github.com/go-delve/delve/cmd/dlv@latest` to install [delve](https://github.com/derekparker/delve/blob/master/Documentation/installation/README.md).
 * Run `go install github.com/lxn/walk@latest` to install [Walk library](https://github.com/lxn/walk).
 * Install [VS Code](https://code.visualstudio.com/download), add [Golang extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
