@@ -9,7 +9,7 @@ import (
 Add books in a bookshelf and display the names of the book in turn.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	bookShelf := NewBookShelf(5)
 	bookShelf.Add(NewBook("Design Patterns: Elements of Reusable Object-Oriented Software"))
 	bookShelf.Add(NewBook("The Object Primer: Agile Model-Driven Development with UML 2.0"))

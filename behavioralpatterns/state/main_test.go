@@ -8,6 +8,6 @@ the message displayed will change depending on whether the time is day or night.
 The internal time of the dialog advances one hour for every second of real time.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	NewAppSafe()
 }

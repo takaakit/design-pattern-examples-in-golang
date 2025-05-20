@@ -15,7 +15,7 @@ A dice game in which money increases and decreases:
 * The game is repeated.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	gamer := NewGamer(100)
 	memento := gamer.CreateMemento()
 

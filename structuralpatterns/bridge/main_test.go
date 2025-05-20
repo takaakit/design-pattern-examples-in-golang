@@ -8,7 +8,7 @@ import (
 Display only one line or display the specified number of lines.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	d1 := NewDisplay(NewTextDisplayImpl("Japan"))
 	d1.Output()
 

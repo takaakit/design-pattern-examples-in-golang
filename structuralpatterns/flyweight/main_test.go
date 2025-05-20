@@ -48,7 +48,7 @@ Please enter digits (ex. 1212123): 123
    ########
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	var le *walk.LineEdit
 	var pb *walk.PushButton
 

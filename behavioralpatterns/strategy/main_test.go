@@ -11,7 +11,7 @@ A game of rock-scissors-paper. Two strategies are available:
 * Mirror Strategy: showing a hand signal from the previous opponent's hand signal.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	player1 := NewPlayer("Emily", NewRandomStrategy())
 	player2 := NewPlayer("James", NewMirrorStrategy())
 

@@ -9,6 +9,6 @@ Simple drawing application:
 * Erase all drawing by pressing the Clear button.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	NewAppMain()
 }

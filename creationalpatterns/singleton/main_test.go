@@ -9,7 +9,7 @@ import (
 Check whether the same instance is obtained.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	obj1 := NewSingleton()
 	obj2 := NewSingleton()
 	if obj1 == obj2 {

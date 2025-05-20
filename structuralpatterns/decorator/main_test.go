@@ -8,7 +8,7 @@ import (
 Display a string with decorative frames. The frames can be combined arbitrarily.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	displayA := NewMessageDisplay("Nice to meet you.")
 	displayA.Show()
 

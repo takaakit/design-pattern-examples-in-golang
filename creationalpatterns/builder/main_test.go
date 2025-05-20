@@ -16,7 +16,7 @@ Create documents in HTML format and text format. It is possible to create differ
 in the same construction process.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	var pb1 *walk.PushButton
 	var pb2 *walk.PushButton
 

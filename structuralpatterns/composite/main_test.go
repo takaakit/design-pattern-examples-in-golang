@@ -10,7 +10,7 @@ Represents a file system composed of files and directories. FileSystemElement ma
 it possible to treat File and Directory uniformly.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	fmt.Println("Create a file system...")
 
 	binDir := NewDirectory("bin")

@@ -10,7 +10,7 @@ Print on a named printer. Setting and changing the printer name is done by Proxy
 At the time of printing, create an instance of the RealSubject (RealPrinter) for the first time.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	p := NewProxyPrinter("PRINTER-A")
 	fmt.Println("The current printer is " + p.GetName() + ".")
 	p.ChangeName("PRINTER-B")

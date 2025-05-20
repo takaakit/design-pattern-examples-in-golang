@@ -40,7 +40,7 @@ After parsing  : [program [repeat 4 [forward, right]]]
 ```
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 
 	// Reads commands line by line from the "program.txt" and parses them.
 

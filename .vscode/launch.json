@@ -11,7 +11,7 @@
         "args": [
             "-test.v",
             "-test.run",
-            "TestMain"
+            "Test"
         ]
       }
     ]

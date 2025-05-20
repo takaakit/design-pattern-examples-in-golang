@@ -11,7 +11,7 @@ Observers observe a Subject object holding a numerical value and display the val
 The display formats are digits and bar charts.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	numberSubject := NewNumberSubject()
 	numberSubject.Attach(NewDigitObserver(numberSubject))
 	numberSubject.Attach(NewBarChartObserver(numberSubject))

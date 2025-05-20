@@ -12,7 +12,7 @@ but the actual credit card is created by the CreditCardFactory.
 The "createProduct()" is called a Factory Method, and it is responsible for manufacturing an object.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	factory := NewCreditCardFactory()
 
 	jacksonCard := factory.Create(factory, "Jackson")

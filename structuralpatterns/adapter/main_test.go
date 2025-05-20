@@ -15,7 +15,7 @@ or display it as follows.
 ```
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	p := NewPrintMessageDisplay("Nice to meet you")
 	p.PrintWeak()
 	p.PrintStrong()

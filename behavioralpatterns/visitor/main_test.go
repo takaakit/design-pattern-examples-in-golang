@@ -9,7 +9,7 @@ import (
 Visitor visits the file system composed of files and directories, and displays a list of files/directories.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	fmt.Println("Create a file system...")
 
 	binDir := NewDirectory("bin")

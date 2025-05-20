@@ -6,7 +6,7 @@ import "testing"
 Display a character or string repeatedly 5 times.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	display1 := NewCharDisplay("H")
 	display1.Output(display1)
 

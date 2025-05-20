@@ -13,7 +13,7 @@ the Manager class asks those registered instances to return a clone. The Client 
 requires the returned clones to display.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	manager := NewManager()
 
 	// Register instances of the "Display" subclass

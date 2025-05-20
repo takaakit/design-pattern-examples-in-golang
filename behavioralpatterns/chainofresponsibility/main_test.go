@@ -11,7 +11,7 @@ There are four types of supporters below:
 * LimitedSupporter handles troubles below the limit ID.
 */
 
-func TestMain(m *testing.M) {
+func Test(t *testing.T) {
 	emily := NewLazySupporter("Emily")
 	william := NewMoodySupporter("William")
 	amelia := NewSpecialSupporter("Amelia", 6)

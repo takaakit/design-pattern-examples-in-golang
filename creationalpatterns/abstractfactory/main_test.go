@@ -79,3 +79,7 @@ func create(factory Factory) {
 
 	linkPage.Output(linkPage) // Note: This is the client-specified self pattern.
 }
+
+func Test(t *testing.T) {
+	// ... existing code ...
+}
