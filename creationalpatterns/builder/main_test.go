@@ -19,12 +19,14 @@ in the same construction process.
 func Test(t *testing.T) {
 	var pb1 *walk.PushButton
 	var pb2 *walk.PushButton
+	var mw *walk.MainWindow
 
 	_, err := declarative.MainWindow{
-		Title:   "Choose 1 or 2",
-		MinSize: declarative.Size{Width: 200, Height: 50},
-		Size:    declarative.Size{Width: 200, Height: 50},
-		Layout:  declarative.VBox{},
+		AssignTo: &mw,
+		Title:    "Choose 1 or 2",
+		MinSize:  declarative.Size{Width: 200, Height: 50},
+		Size:     declarative.Size{Width: 200, Height: 50},
+		Layout:   declarative.VBox{},
 		Children: []declarative.Widget{
 			declarative.Label{
 				Text: "Choose 1 or 2:",
@@ -39,7 +41,7 @@ func Test(t *testing.T) {
 					content := plainTextBuilder.GetContent()
 					fmt.Println(content)
 
-					os.Exit(0)
+					mw.Close()
 				},
 			},
 			declarative.PushButton{
@@ -54,7 +56,7 @@ func Test(t *testing.T) {
 					currentDir, _ := os.Getwd()
 					fmt.Println("Output File: " + filepath.Join(currentDir, fileName))
 
-					os.Exit(0)
+					mw.Close()
 				},
 			},
 		},

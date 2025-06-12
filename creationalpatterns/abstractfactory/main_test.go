@@ -21,12 +21,14 @@ Create a hierarchical link collection as an HTML file. It can be created in eith
 func TestMain(m *testing.M) {
 	var pb1 *walk.PushButton
 	var pb2 *walk.PushButton
+	var mw *walk.MainWindow
 
 	_, err := declarative.MainWindow{
-		Title:   "Choose 1 or 2",
-		MinSize: declarative.Size{Width: 200, Height: 50},
-		Size:    declarative.Size{Width: 200, Height: 50},
-		Layout:  declarative.VBox{},
+		AssignTo: &mw,
+		Title:    "Choose 1 or 2",
+		MinSize:  declarative.Size{Width: 200, Height: 50},
+		Size:     declarative.Size{Width: 200, Height: 50},
+		Layout:   declarative.VBox{},
 		Children: []declarative.Widget{
 			declarative.Label{
 				Text: "Choose 1 or 2:",
@@ -36,7 +38,7 @@ func TestMain(m *testing.M) {
 				Text:     "1: Create an HTML file by using ListFactory",
 				OnClicked: func() {
 					create(NewListFactory())
-					os.Exit(0)
+					mw.Close()
 				},
 			},
 			declarative.PushButton{
@@ -44,7 +46,7 @@ func TestMain(m *testing.M) {
 				Text:     "2: Create an HTML file by using TableFactory",
 				OnClicked: func() {
 					create(NewTableFactory())
-					os.Exit(0)
+					mw.Close()
 				},
 			},
 		},

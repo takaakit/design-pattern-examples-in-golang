@@ -51,12 +51,14 @@ Please enter digits (ex. 1212123): 123
 func Test(t *testing.T) {
 	var le *walk.LineEdit
 	var pb *walk.PushButton
+	var mw *walk.MainWindow
 
 	_, err := declarative.MainWindow{
-		Title:   "Input Dialog",
-		MinSize: declarative.Size{Width: 200, Height: 50},
-		Size:    declarative.Size{Width: 200, Height: 50},
-		Layout:  declarative.VBox{},
+		AssignTo: &mw,
+		Title:    "Input Dialog",
+		MinSize:  declarative.Size{Width: 200, Height: 50},
+		Size:     declarative.Size{Width: 200, Height: 50},
+		Layout:   declarative.VBox{},
 		Children: []declarative.Widget{
 			declarative.Label{
 				Text: "Please enter digits (ex. 1212123):",
@@ -72,7 +74,7 @@ func Test(t *testing.T) {
 					lss := NewLargeSizeString(le.Text())
 					lss.Display()
 
-					os.Exit(0)
+					mw.Close()
 				},
 			},
 		},

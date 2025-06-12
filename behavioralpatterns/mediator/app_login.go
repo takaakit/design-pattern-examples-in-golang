@@ -28,6 +28,8 @@ type AppLogin struct {
 
 	buttonCancel *ColleagueButton
 
+	mainWindow *walk.MainWindow
+
 	// ˅
 
 	// ˄
@@ -64,9 +66,8 @@ func (a *AppLogin) CreateColleagues() {
 	radioButtonValue := &RadioButtonValue{0}
 
 	// Create main window
-	var mw *walk.MainWindow
 	err := declarative.MainWindow{
-		AssignTo: &mw,
+		AssignTo: &a.mainWindow,
 		Title:    "Mediator Example",
 		MinSize:  declarative.Size{Width: 250, Height: 200},
 		Size:     declarative.Size{Width: 250, Height: 200},
@@ -154,7 +155,7 @@ func (a *AppLogin) CreateColleagues() {
 	// Change colleagues in the initial state (the "Guest" radio button is selected).
 	a.ColleagueChanged()
 
-	mw.Run()
+	a.mainWindow.Run()
 	// ˄
 }
 
@@ -162,7 +163,7 @@ func (a *AppLogin) CreateColleagues() {
 func (a *AppLogin) ColleagueChanged() {
 	// ˅
 	if a.buttonOk.IsPressed() || a.buttonCancel.IsPressed() {
-		os.Exit(0)
+		a.mainWindow.Close()
 	} else {
 		if a.radioGuest.IsSelected() { // Guest mode
 			a.textUsername.SetActivation(false)
